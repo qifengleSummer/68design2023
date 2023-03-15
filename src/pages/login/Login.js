@@ -2,7 +2,7 @@ import './Login.less'
 import logo from "../../assets/imgs/logo.svg";
 import { Tabs, Button, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRef, useState, useEffect, useMemo } from "react";
+import { useRef, useState } from "react";
 
 
 const layout = {
