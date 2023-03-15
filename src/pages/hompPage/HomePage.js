@@ -1,8 +1,9 @@
 import './HomePage.less';
 import { useNavigate, Link } from 'react-router-dom';
-import { Col, Row, Button, Space, List, Input } from 'antd';
-import { SearchOutlined, CaretDownOutlined } from '@ant-design/icons';
+import { Col, Row, Button, Space, List } from 'antd';
+
 import LeftBar from "./components/leftBar/LeftBar";
+import NavSearch from "./components/navSearch/NavSearch";
 import logo from "../../assets/imgs/logo.svg";
 
 const data = [
@@ -71,11 +72,7 @@ const Index = () => {
                     </Col>
                     <Col span={2}></Col>
                     <Col span={6}>
-                        <Input
-                            className='nav-search'
-                            placeholder="搜索"
-                            prefix={<SearchOutlined />}
-                            />
+                        <NavSearch />
                     </Col>
                 </Row>
             </section>
