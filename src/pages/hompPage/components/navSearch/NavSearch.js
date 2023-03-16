@@ -36,9 +36,9 @@ const NavSearch = () => {
         setStateFocus(true)
     }
     const inputOnBlur = () => {
-        setTimeout(() => { // 延迟多少毫秒才能点到DOM
+        // setTimeout(() => { // 延迟多少毫秒才能点到DOM
             setStateFocus(false)
-        }, 160);
+        // }, 160);
     }
     const searchContent = (index) => {
         setPlaceholder(selectData[index].content)

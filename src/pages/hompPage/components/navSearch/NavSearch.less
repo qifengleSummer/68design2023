@@ -18,7 +18,12 @@
         box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
     }
     .search-type-container {
-        display: none;
+        // display: none;
+        height: 0;
+        background-color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        transition: ease .3s;
         position: absolute;
         top: 50px;
         box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
@@ -47,10 +52,16 @@
         }
     }
     .show-search-type {
-        display: block;
+        // display: block;
+        visibility: visible;
+        opacity: 1;
+        height: auto;
     }
     .hide-search-type {
-        display: none;
+        // display: none;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
     }
     
 }
