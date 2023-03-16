@@ -45,7 +45,7 @@ const Index = () => {
                         <Space>
                             <Button>雇主控制台</Button>
                             <Button onClick={() => navigate("/login")}>登录</Button>
-                            <Button onClick={() => navigate("/register")}>注册</Button>
+                            <Button className='register-btn' onClick={() => navigate("/register")}>注册</Button>
                         </Space>
                     </Col>
                 </Row>

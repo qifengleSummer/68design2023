@@ -1,24 +1,28 @@
 import './NavSearch.less'
-import { Input,List } from 'antd';
+import { Input } from 'antd';
 import SearchIcon from './searchIcon/SearchIcon'
 import { useState, useRef } from "react";
 
 const selectData = [
     {
         title: '作品',
-        content: '搜索原创设计师作品'
+        content: '搜索原创设计师作品',
+        searchType: 'works'
     },
     {
         title: '服务',
-        content: '根据技能搜索设计师'
+        content: '根据技能搜索设计师',
+        searchType: 'service'
     },
     {
         title: '案例',
-        content: '搜索参考案例'
+        content: '搜索参考案例',
+        searchType: 'case'
     },
     {
         title: '设计师',
-        content: '精准搜索设计师'
+        content: '精准搜索设计师',
+        searchType: 'designer'
     },
 ]
 
@@ -34,12 +38,13 @@ const NavSearch = () => {
     const inputOnBlur = () => {
         setTimeout(() => { // 延迟多少毫秒才能点到DOM
             setStateFocus(false)
-        }, 200);
+        }, 160);
     }
-    const searchContent = (text) => {
-        setPlaceholder(text)
-        if (inputVal.current.input.value) {
-            window.open("http://localhost:3000/login");
+    const searchContent = (index) => {
+        setPlaceholder(selectData[index].content)
+        let val = inputVal.current.input.value
+        if (val) {
+            window.open(`http://localhost:3000/login?${selectData[index].searchType}=${val}`);
         }
     }
 
@@ -55,15 +60,18 @@ const NavSearch = () => {
             />
             <ul className={['search-type-container', stateFocus ? 'show-search-type' : 'hide-search-type'].join(' ')}>
                 {
-                    selectData.map(item => (
-                        <li key={item.title} onClickCapture={() => searchContent(item.content)}>
+                    selectData.map((item, index) => (
+                        <li 
+                            key={item.title} 
+                            onClickCapture={() => searchContent(index)}
+                            className={[placeholder === item.content ? 'nav-search-active' : '']}
+                            >
                             <b className='one'>{item.title}</b>
                             <p className='two'>{item.content}</p>
                         </li>
                     ))
                 }
             </ul>
-            
         </div>
     )
 }
