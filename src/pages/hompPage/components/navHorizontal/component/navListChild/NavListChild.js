@@ -14,7 +14,7 @@ const NavListChild= (props) => {
                     </li>
                 ))
             }
-            </ul>
+        </ul>
     )
 }
 
