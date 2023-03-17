@@ -1,67 +1,66 @@
 .nav-search-container {
-    position: relative;
-    .nav-search {
-        border-radius: 17px;
-        border-color: transparent;
-        border: 1px solid #F2F7F2;
-        background: #F2F7F2;
-        input {
-            background: #F2F7F2;
-            &:focus {
-                background: #fff;
-            }
-        }
-    }
-    .nav-search.ant-input-affix-wrapper-focused {
-        border-color: transparent;
+  position: relative;
+  .nav-search {
+    border-radius: 17px;
+    border-color: transparent;
+    border: 1px solid #f2f7f2;
+    background: #f2f7f2;
+    input {
+      background: #f2f7f2;
+      &:focus {
         background: #fff;
-        box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
+      }
     }
-    .search-type-container {
-        // display: none;
-        height: 0;
-        background-color: #fff;
-        visibility: hidden;
-        opacity: 0;
-        transition: ease .3s;
-        position: absolute;
-        top: 50px;
-        box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
-        border-radius: 6px;
-        width: 100%;
-        padding: 8px 0;
-        li {
-            padding: 0 20px;
-            cursor: pointer;
-            &:hover {
-                background-color: #f2f7f2;
-            }
-        }
-        li.nav-search-active {
-            background-color: #f2f7f2;
-        }
-        b.one {
-            display: block;
-            line-height: 24px;
-            height: 24px;
-            font-size: 18px;
-        }
-        p.two {
-            line-height: 30px;
-            height: 30px;
-        }
+  }
+  .nav-search.ant-input-affix-wrapper-focused {
+    border-color: transparent;
+    background: #fff;
+    box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
+  }
+  .search-type-container {
+    // display: none;
+    height: 0;
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: ease 0.3s;
+    position: absolute;
+    top: 50px;
+    box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    width: 100%;
+    padding: 8px 0;
+    li {
+      padding: 0 20px;
+      cursor: pointer;
+      &:hover {
+        background-color: #f2f7f2;
+      }
     }
-    .show-search-type {
-        // display: block;
-        visibility: visible;
-        opacity: 1;
-        height: auto;
+    li.nav-search-active {
+      background-color: #f2f7f2;
     }
-    .hide-search-type {
-        // display: none;
-        visibility: hidden;
-        opacity: 0;
-        height: 0;
+    b.one {
+      display: block;
+      line-height: 24px;
+      height: 24px;
+      font-size: 18px;
     }
-    
+    p.two {
+      line-height: 30px;
+      height: 30px;
+    }
+  }
+  .show-search-type {
+    // display: block;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+  }
+  .hide-search-type {
+    // display: none;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+  }
 }

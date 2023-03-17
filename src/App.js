@@ -1,5 +1,5 @@
-import './App.css';
-import { Route, Routes } from "react-router-dom";
+import './App.css'
+import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/hompPage/HomePage'
 import Login from './pages/login/Login'
 import Register from './pages/register/Register'
@@ -15,9 +15,7 @@ function App() {
         <Route path="forget-pwd" element={<ForgetPwd />}></Route>
       </Routes>
     </div>
-  );
+  )
 }
 
-
-
-export default App;
+export default App
