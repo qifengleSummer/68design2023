@@ -1,6 +1,7 @@
 {
   "name": "68design2023",
   "version": "0.1.0",
+  "homepage": "https://qifengleSummer.github.io/68design2023",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^5.0.1",
@@ -19,6 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
@@ -41,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
