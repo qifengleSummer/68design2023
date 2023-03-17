@@ -3,9 +3,9 @@ import logo from '../../../assets/imgs/logo.svg'
 import { useNavigate } from 'react-router-dom'
 import { Col, Row, Space } from 'antd'
 
-import NavSearch from '../../hompPage/components/navSearch/NavSearch'
-import NavHorizontal from '../../hompPage/components/navHorizontal/NavHorizontal'
-import LeftBar from '../../hompPage/components/leftBar/LeftBar'
+import NavSearch from '../navSearch/NavSearch'
+import NavHorizontal from '../navHorizontal/NavHorizontal'
+import LeftBar from '../leftBar/LeftBar'
 import CommonButton from '../commonButton/CommonButton'
 
 function TopHeader() {

@@ -23,7 +23,7 @@ const Index = () => {
         <h2 className="homepage-title-h2"> 为您的业务寻找更好的设计师 </h2>
         <h3 className="homepage-title-h3">300万设计师在用的远程雇佣平台，100+设计细分领域</h3>
         <div className="homepage-title-btn">
-          <Space>
+          <Space size="large">
             <CommonButton
               btnClicked={() => btnClicked(1)}
               title="免费发布任务"
@@ -39,6 +39,7 @@ const Index = () => {
             />
           </Space>
         </div>
+        <p className="homepage-title-text">最快5分钟内获取合适人选及报价，沟通满意后再雇佣</p>
       </section>
     </div>
   )
