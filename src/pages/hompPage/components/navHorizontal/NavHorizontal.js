@@ -15,35 +15,35 @@ const data = [
       children: [
         {
           label: '品牌设计',
-          key: '1',
+          type: '1',
         },
         {
           label: '网站设计',
-          key: '2',
+          type: '2',
         },
         {
           label: '电商设计',
-          key: '3'
+          type: '3'
         },
         {
           label: 'UI设计',
-          key: '4'
+          type: '4'
         },
         {
           label: '插画',
-          key: '5'
+          type: '5'
         },
         {
           label: '摄影',
-          key: '6'
+          type: '6'
         },
         {
           label: '室内设计',
-          key: '7'
+          type: '7'
         },
         {
           label: '工业设计',
-          key: '8'
+          type: '8'
         },
       ]
     },
@@ -54,19 +54,50 @@ const data = [
       title: '···',
       children: [
         {
-          label: '品牌设计',
-          key: '0',
+          label: '工具',
+          type: 'tools',
+          children: [{
+            label: '酷站',
+            type: 'cool',
+          },
+          {
+            label: '导航',
+            type: 'nav',
+          },
+          {
+            label: '素材',
+            type: 'material',
+          }]
         },
         {
-          label: '网站设计',
-          key: '1',
+          label: '内容',
+          type: 'content',
+          children: [{
+            label: '任务',
+            type: 'task',
+          },
+          {
+            label: '专访',
+            type: 'interview',
+          }]
+        },
+        {
+          label: '其他',
+          type: 'other',
+          children: [{
+            label: '企业',
+            type: 'company',
+          },
+          {
+            label: '十佳',
+            type: 'best',
+          }]
         }
       ]
     }
   ];
 
 const NavHorizontal = () => {
-  console.log(9999999999999)
     return (
         <div className="nav-horizontal-container">
             <List
@@ -78,8 +109,10 @@ const NavHorizontal = () => {
                 renderItem={(items) => (
                 <List.Item>
                     <div className="link-nav">
-                        <Link target="_blank" to="/register" className='link-a-color'>{items.title}</Link>
-                        {items.children ? <NavListChild childData={items.children}/> : ''}
+                        {
+                          items.title !== '···' ? <Link target="_blank" to="/register" className='link-a-color'>{items.title}</Link> : <span className='link-a-color no-hover'>{items.title}</span>
+                        }
+                        {items.children ? <NavListChild childData={items.children} title={items.title}/> : ''}
                     </div>
                 </List.Item>
                 )}

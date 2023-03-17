@@ -1,14 +1,27 @@
 import './Header.less'
 import logo from "../../../assets/imgs/logo.svg";
 import { useNavigate } from 'react-router-dom';
-import { Col, Row, Button, Space } from 'antd';
+import { Col, Row, Space } from 'antd';
 
 import NavSearch from "../../hompPage/components/navSearch/NavSearch";
 import NavHorizontal from "../../hompPage/components/navHorizontal/NavHorizontal";
 import LeftBar from "../../hompPage/components/leftBar/LeftBar";
+import CommonButton from "../commonButton/CommonButton";
 
 function TopHeader () {
     const navigate = useNavigate()
+    const btnClicked = (type) => {
+        switch (type) {
+            case 2:
+                navigate("/login")
+                break;
+            case 3:
+                navigate("/register")
+                break;
+            default:
+                break;
+        }
+    }
     return (
         <div className='top-header-container'>
             <header >
@@ -18,9 +31,9 @@ function TopHeader () {
                     </Col>
                     <Col span={12} className="right-btn">
                         <Space>
-                            <Button>雇主控制台</Button>
-                            <Button onClick={() => navigate("/login")}>登录</Button>
-                            <Button className='register-btn' onClick={() => navigate("/register")}>注册</Button>
+                            <CommonButton btnClicked={() => btnClicked(1)} title='雇主控制台' />
+                            <CommonButton btnClicked={() => btnClicked(2)} title='登录' />
+                            <CommonButton btnClicked={() => btnClicked(3)} title='注册' emphasize/>
                         </Space>
                     </Col>
                 </Row>

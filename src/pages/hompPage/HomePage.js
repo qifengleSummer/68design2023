@@ -1,13 +1,32 @@
 import './HomePage.less';
+import { useNavigate } from 'react-router-dom';
+import { Space } from 'antd';
 import TopHeader from "../components/header/Header";
+import CommonButton from "../components/commonButton/CommonButton";
 
 const Index = () => {
+    const navigate = useNavigate()
+    const btnClicked = (type) => {
+        switch (type) {
+            case 2:
+                navigate("/login")
+                break;
+            default:
+                navigate("/login")
+                break;
+        }
+    }
     return (
         <div className='home-page-container'>
             <TopHeader/>
             <section className="home-body">
-                <div>
-                    中国国际经济交流中心副理事长、国际货币基金组织原副总裁 朱民：做贸易融资是很普遍的一件事，有买方信贷，有卖方信贷，但在沙特就比较有意思：第一沙特很有钱，所以通常也很难想到沙特需要贷款来做贸易；   
+                <h2 className='homepage-title-h2'> 为您的业务寻找更好的设计师 </h2>
+                <h3 className='homepage-title-h3'>300万设计师在用的远程雇佣平台，100+设计细分领域</h3>
+                <div className='homepage-title-btn'>
+                    <Space>
+                        <CommonButton btnClicked={() => btnClicked(1)} title='免费发布任务' size='large' padNumber='30' emphasize/>
+                        <CommonButton btnClicked={() => btnClicked(2)} title='设计师入住' size='large' padNumber='30'/>
+                    </Space>
                 </div>
             </section>
         </div>
