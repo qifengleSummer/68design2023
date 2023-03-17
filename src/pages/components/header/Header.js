@@ -46,8 +46,7 @@ function TopHeader() {
         <Col span={9}>
           <NavHorizontal />
         </Col>
-        <Col span={5}></Col>
-        <Col span={6}>
+        <Col span={6} offset={5}>
           <NavSearch />
         </Col>
       </Row>

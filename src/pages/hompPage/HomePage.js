@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Space } from 'antd'
 import TopHeader from '../components/header/Header'
 import CommonButton from '../components/commonButton/CommonButton'
+import DesignPart from './components/designPart/DesignPart'
 
 const Index = () => {
   const navigate = useNavigate()
@@ -40,6 +41,7 @@ const Index = () => {
           </Space>
         </div>
         <p className="homepage-title-text">最快5分钟内获取合适人选及报价，沟通满意后再雇佣</p>
+        <DesignPart />
       </section>
     </div>
   )

@@ -1,0 +1,64 @@
+.design-part-container {
+  .dp-item {
+    box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
+    border-radius: 5px;
+  }
+  .dp-img-container {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 90px;
+    text-align: center;
+    transition: ease 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    font-weight: bold;
+    color: #fff;
+    .dp-img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .dp-img-label {
+      position: absolute;
+      z-index: 99;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.35);
+      transition: ease 0.3s;
+      border-radius: 5px;
+    }
+    &:hover {
+      background: #14a900;
+    }
+  }
+  .detail-list {
+    padding: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 15px;
+  }
+  .dp-link {
+    cursor: pointer;
+    display: block;
+    width: 76px;
+    margin: 6px 0;
+    &:hover {
+      color: #14a900;
+    }
+  }
+}
