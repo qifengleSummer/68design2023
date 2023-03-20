@@ -19,6 +19,7 @@ svg {
 }
 a {
   color: #222;
+  text-decoration: none;
 }
 /* .App {
   text-align: center;
