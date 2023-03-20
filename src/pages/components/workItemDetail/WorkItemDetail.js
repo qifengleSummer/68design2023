@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import ThumbUp from '../ThumbUp'
 import picPic from '../../../assets/imgs/homePage/picture.jpg'
 
+import { apiGet, apiPost } from '@/service/reqMethod'
+
 const list = [
   {
     pic: picPic,
@@ -187,8 +189,20 @@ const list = [
   },
 ]
 const WorkItemDetail = () => {
+  const getApiData = () => {
+    apiGet('/workItemDetailList', { a: 33 }).then((res) => {
+      console.log(res)
+    })
+    apiPost('/testPost', { a: 1 }).then((res) => {
+      console.log(res)
+    })
+  }
   return (
     <div className="works-part-content-container">
+      <br />
+      <button onClick={getApiData}>点击获取数据</button>
+      <br />
+      <br />
       {list.map((item, index) => (
         <div className="works-part-item" key={index}>
           <div className="works-part-content">
