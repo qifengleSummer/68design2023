@@ -1,6 +1,6 @@
 import './WorksPart.less'
 import { Link } from 'react-router-dom'
-import WorkItemDetail from '../../../components/workItemDetail/WorkItemDetail'
+import WorkItemDetail from '@/pages/components/workItemDetail/WorkItemDetail'
 
 const WorksPart = () => {
   return (

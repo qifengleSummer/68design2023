@@ -5,6 +5,7 @@ import TopHeader from '../components/header/Header'
 import CommonButton from '../components/commonButton/CommonButton'
 import DesignPart from './components/designPart/DesignPart'
 import WorksPart from './components/worksPart/WorksPart'
+import DesignerInfo from '@/pages/components/designerInfo/DesignerInfo'
 
 const Index = () => {
   const navigate = useNavigate()
@@ -44,6 +45,8 @@ const Index = () => {
         <p className="homepage-title-text">最快5分钟内获取合适人选及报价，沟通满意后再雇佣</p>
         <DesignPart />
         <WorksPart />
+        <h2 className="freelance-designers">推荐自由设计师</h2>
+        <DesignerInfo />
       </section>
     </div>
   )

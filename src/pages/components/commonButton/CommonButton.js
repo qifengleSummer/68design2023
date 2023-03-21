@@ -1,7 +1,15 @@
 import './CommonButton.less'
 import { Button } from 'antd'
 
-const CommonButton = ({ title, size = 'middle', padNumber = 20, emphasize, btnClicked }) => {
+const CommonButton = ({
+  title,
+  size = 'middle',
+  padNumber = 20,
+  emphasize,
+  fontEmphasize,
+  fontSize = 14,
+  btnClicked,
+}) => {
   const commonBtnClicked = () => {
     btnClicked()
   }
@@ -13,6 +21,8 @@ const CommonButton = ({ title, size = 'middle', padNumber = 20, emphasize, btnCl
         style={{
           paddingLeft: `${padNumber}px`,
           paddingRight: `${padNumber}px`,
+          fontWeight: `${fontEmphasize ? 'bold' : ''}`,
+          fontSize: `${fontSize}px`,
         }}
         onClick={commonBtnClicked}
       >

@@ -2,8 +2,10 @@ import './WorkItemDetail.less'
 import { StarFilled, EyeFilled } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Popover } from 'antd'
 import ThumbUp from '../ThumbUp'
-import picPic from '../../../assets/imgs/homePage/picture.jpg'
+import DesignerDetailInfo from './designerDetailInfo/DesignerDetailInfo.js'
+import picPic from '@/assets/imgs/homePage/picture.jpg'
 import { apiGet } from '@/service/reqMethod'
 
 const WorkItemDetail = () => {
@@ -28,7 +30,9 @@ const WorkItemDetail = () => {
               <Link className="text-color">{item.title}</Link>
             </div>
             <div className="wp-author">
-              <Link className="text-color">{item.author}</Link>
+              <Popover placement="bottomLeft" content={<DesignerDetailInfo designerInfo={item} />}>
+                <Link className="text-color">{item.author}</Link>
+              </Popover>
             </div>
             <div className="wp-type">
               <Link className="text-color">{item.type}</Link>

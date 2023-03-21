@@ -1,11 +1,11 @@
 import './DesignPart.less'
 import { Col, Row } from 'antd'
 import { Link } from 'react-router-dom'
-import picBrand from '../../../../assets/imgs/homePage/brand.jpg'
-import picUi from '../../../../assets/imgs/homePage/ui.jpg'
-import picWeb from '../../../../assets/imgs/homePage/web.jpg'
-import picBusiness from '../../../../assets/imgs/homePage/business.jpg'
-import picPic from '../../../../assets/imgs/homePage/picture.jpg'
+import picBrand from '@/assets/imgs/homePage/brand.jpg'
+import picUi from '@/assets/imgs/homePage/ui.jpg'
+import picWeb from '@/assets/imgs/homePage/web.jpg'
+import picBusiness from '@/assets/imgs/homePage/business.jpg'
+import picPic from '@/assets/imgs/homePage/picture.jpg'
 
 const list = [
   {
