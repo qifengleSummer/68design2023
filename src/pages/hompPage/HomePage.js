@@ -1,7 +1,7 @@
 import './HomePage.less'
 import { useNavigate } from 'react-router-dom'
 import { Space } from 'antd'
-import TopHeader from '../components/header/Header'
+
 import CommonButton from '../components/commonButton/CommonButton'
 import DesignPart from './components/designPart/DesignPart'
 import WorksPart from './components/worksPart/WorksPart'
@@ -21,7 +21,6 @@ const Index = () => {
   }
   return (
     <div className="home-page-container">
-      <TopHeader />
       <section className="home-body">
         <h2 className="homepage-title-h2"> 为您的业务寻找更好的设计师 </h2>
         <h3 className="homepage-title-h3">300万设计师在用的远程雇佣平台，100+设计细分领域</h3>
@@ -47,6 +46,22 @@ const Index = () => {
         <WorksPart />
         <h2 className="freelance-designers">推荐自由设计师</h2>
         <DesignerInfo />
+
+        <div className="adv-team-container">
+          <h2 className="adv-team-p1">组建您的线上设计团队</h2>
+          <p className="adv-team-p2">随时随地与需要的设计师远程协作，轻松管理、全程保障</p>
+          <CommonButton
+            btnClicked={() => btnClicked(1)}
+            title="免费使用"
+            size="large"
+            padNumber="40"
+            emphasize
+            fontEmphasize
+            fontSize="16"
+            bgColor="#fff"
+            color="#14A900"
+          />
+        </div>
       </section>
     </div>
   )

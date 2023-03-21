@@ -8,22 +8,27 @@ const CommonButton = ({
   emphasize,
   fontEmphasize,
   fontSize = 14,
+  bgColor,
+  color,
   btnClicked,
 }) => {
   const commonBtnClicked = () => {
     btnClicked()
+  }
+  let btnConfig = {
+    paddingLeft: `${padNumber}px`,
+    paddingRight: `${padNumber}px`,
+    fontWeight: `${fontEmphasize ? 'bold' : ''}`,
+    fontSize: `${fontSize}px`,
+    backgroundColor: `${bgColor ? bgColor : ''}`,
+    color: `${color ? color : ''}`,
   }
   return (
     <div className="common-button-container">
       <Button
         className={['common-button', emphasize ? 'emphasize-btn' : ''].join(' ')}
         size={size}
-        style={{
-          paddingLeft: `${padNumber}px`,
-          paddingRight: `${padNumber}px`,
-          fontWeight: `${fontEmphasize ? 'bold' : ''}`,
-          fontSize: `${fontSize}px`,
-        }}
+        style={btnConfig}
         onClick={commonBtnClicked}
       >
         {title}
