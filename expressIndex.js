@@ -24,6 +24,7 @@ app.get('/workItemDetailList', (req, res) => {
   res.json(
     resConfig([
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -36,6 +37,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '草木茶舍 | 泡茶古朴又惊艳',
         author: '黄冠之',
         type: '空间，空间餐饮',
@@ -48,6 +50,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '3332',
       },
       {
+        AuthorType: 'P',
         title: '字体设计 | Font design',
         author: '戴秀',
         type: '平面，字体',
@@ -60,7 +63,8 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '6332',
       },
       {
-        title: '随风集',
+        AuthorType: 'P',
+        title: '医疗用品',
         author: '金昌友',
         type: '网页，企业官网',
         thumb: '57',
@@ -72,8 +76,9 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
-        title: '随风集',
-        author: '金昌友',
+        AuthorType: 'B',
+        title: '行车记录仪',
+        author: '文化科技有限公司',
         type: '网页，企业官网',
         thumb: '57',
         eye: '1990',
@@ -84,6 +89,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -96,6 +102,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -108,6 +115,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -120,6 +128,20 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'B',
+        title: '春日出游',
+        author: '设计有限公司',
+        type: '网页，企业官网',
+        thumb: '57',
+        eye: '1990',
+        publishTime: '22小时前',
+        province: '广东',
+        area: '深圳',
+        influence: '4352',
+        areaInfluence: '2332',
+      },
+      {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -132,6 +154,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -144,6 +167,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -156,6 +180,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -168,6 +193,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',
@@ -180,18 +206,7 @@ app.get('/workItemDetailList', (req, res) => {
         areaInfluence: '2332',
       },
       {
-        title: '随风集',
-        author: '金昌友',
-        type: '网页，企业官网',
-        thumb: '57',
-        eye: '1990',
-        publishTime: '22小时前',
-        province: '广东',
-        area: '深圳',
-        influence: '4352',
-        areaInfluence: '2332',
-      },
-      {
+        AuthorType: 'P',
         title: '随风集',
         author: '金昌友',
         type: '网页，企业官网',

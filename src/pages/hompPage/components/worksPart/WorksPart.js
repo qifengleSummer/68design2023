@@ -13,7 +13,7 @@ const WorksPart = () => {
           <b>最新作品</b>
         </Link>
       </div>
-      <WorkItemDetail />
+      <WorkItemDetail detailConfig={{ needAuthorName: true, needStar: true }} />
     </div>
   )
 }
