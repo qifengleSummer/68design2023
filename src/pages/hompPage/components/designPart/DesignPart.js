@@ -141,13 +141,18 @@ const DesignPart = () => {
       <Row justify="space-around">
         {list.map((item) => (
           <Col key={item.label} className="dp-item" span={4}>
-            <Link target="_blank" className="dp-img-container" to="/register">
+            <Link target="_blank" className="dp-img-container" to="/design-part-detail">
               <img className="dp-img" src={item.img} alt="" />
               <span className="dp-img-label">{item.label}</span>
             </Link>
             <div className="detail-list">
               {item.children.map((detail) => (
-                <Link target="_blank" key={detail.label} className="dp-link" to="/register">
+                <Link
+                  target="_blank"
+                  key={detail.label}
+                  className="dp-link"
+                  to="/design-part-detail"
+                >
                   {detail.label}
                 </Link>
               ))}

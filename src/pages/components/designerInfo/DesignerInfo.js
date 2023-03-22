@@ -22,7 +22,9 @@ const DesignerInfo = () => {
             <img className="designer-avatar" src={picDesigner} alt="" />
           </div>
           <div className="designer-name">
-            <Link className="designer-name-name">{item.name}</Link>
+            <Link className="designer-name-name" to="/designer-detail-info">
+              {item.name}
+            </Link>
             <span
               className={[
                 'designer-name-type',

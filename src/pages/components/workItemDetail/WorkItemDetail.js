@@ -31,7 +31,9 @@ const WorkItemDetail = () => {
             </div>
             <div className="wp-author">
               <Popover placement="bottomLeft" content={<DesignerDetailInfo designerInfo={item} />}>
-                <Link className="text-color">{item.author}</Link>
+                <Link className="text-color" to="/designer-works-list">
+                  {item.author}
+                </Link>
               </Popover>
             </div>
             <div className="wp-type">
