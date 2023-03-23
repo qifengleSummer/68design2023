@@ -3,9 +3,11 @@ import HomePage from '@/pages/hompPage/HomePage'
 import Login from '@/pages/login/Login'
 import Register from '@/pages/register/Register'
 import ForgetPwd from '@/pages/forgetPwd/ForgetPwd'
-import HomePageDesignPartDetail from '@/pages/homePageDesignPartDetail/HomePageDesignPartDetail'
+import DepartmentDetailMarket from '@/pages/departmentDetailMarket/DepartmentDetailMarket'
 import DesignerWorksList from '@/pages/designerWorksList/DesignerWorksList'
 import DesignerDetailInfo from '@/pages/designerDetailInfo/DesignerDetailInfo'
+import TalentList from '@/pages/talentList/TalentList'
+import DesignerPersonalSpace from '@/pages/designerPersonalSpace/DesignerPersonalSpace'
 import App from '@/App.js'
 
 const router = createHashRouter([
@@ -31,7 +33,7 @@ const router = createHashRouter([
       },
       {
         path: '/design-part-detail',
-        element: <HomePageDesignPartDetail />,
+        element: <DepartmentDetailMarket />,
       },
       {
         path: '/designer-works-list',
@@ -40,6 +42,14 @@ const router = createHashRouter([
       {
         path: '/designer-detail-info',
         element: <DesignerDetailInfo />,
+      },
+      {
+        path: '/talent-list',
+        element: <TalentList />,
+      },
+      {
+        path: '/designer-personal-space',
+        element: <DesignerPersonalSpace />,
       },
     ],
   },

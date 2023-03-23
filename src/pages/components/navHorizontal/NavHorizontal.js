@@ -5,12 +5,15 @@ import NavListChild from './component/navListChild/NavListChild'
 
 const data = [
   {
-    title: '作品',
-  },
-  {
+    key: 'talent-list',
     title: '人才',
   },
   {
+    key: 'market',
+    title: '服务市场',
+  },
+  {
+    key: 'design-department',
     title: '设计部',
     children: [
       {
@@ -48,9 +51,11 @@ const data = [
     ],
   },
   {
-    title: '案例',
+    key: 'works-list',
+    title: '作品',
   },
   {
+    key: 'other',
     title: '···',
     children: [
       {
@@ -116,7 +121,7 @@ const NavHorizontal = () => {
           <List.Item>
             <div className="link-nav">
               {items.title !== '···' ? (
-                <Link target="_blank" to="/register" className="link-a-color">
+                <Link target="_blank" to={items.key} className="link-a-color">
                   {items.title}
                 </Link>
               ) : (
