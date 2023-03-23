@@ -1,6 +1,6 @@
 import './Header.less'
 import logo from '@/assets/imgs/logo.svg'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { Col, Row, Space } from 'antd'
 
 import NavSearch from '../navSearch/NavSearch'
@@ -41,7 +41,9 @@ function TopHeader() {
 
       <Row className="nav-bar">
         <Col span={4}>
-          <img className="logo-img" src={logo} alt="" />
+          <Link to="/">
+            <img className="logo-img" src={logo} alt="" />
+          </Link>
         </Col>
         <Col span={9}>
           <NavHorizontal />

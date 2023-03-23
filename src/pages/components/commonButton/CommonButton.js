@@ -11,6 +11,7 @@ const CommonButton = ({
   bgColor,
   color,
   btnClicked,
+  setIcon,
 }) => {
   const commonBtnClicked = () => {
     btnClicked()
@@ -31,6 +32,7 @@ const CommonButton = ({
         style={btnConfig}
         onClick={commonBtnClicked}
       >
+        <span className="common-button-icon">{setIcon}</span>
         {title}
       </Button>
     </div>

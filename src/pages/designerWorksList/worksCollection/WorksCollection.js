@@ -4,7 +4,7 @@ import MenuFilter from '@/pages/components/menuFilter/MenuFilter'
 import { useState } from 'react'
 
 const WorksCollection = () => {
-  const [tabIndex, setTabIndex] = useState()
+  const [tabIndex, setTabIndex] = useState(1)
   const changeTab = (index) => setTabIndex(index)
 
   return (

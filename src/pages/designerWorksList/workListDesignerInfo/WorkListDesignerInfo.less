@@ -5,17 +5,114 @@
     border-radius: 3px;
     .avatar-container {
       display: flex;
+      padding: 0 0 20px;
+      .avatar-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: #e3ece3;
+      }
+      .desiner-introduce {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .desiner-introduce-li {
+          color: #999;
+          font-size: 14px;
+          padding: 4px 14px;
+        }
+        .desiner-introduce-name {
+          color: #222;
+          font-size: 16px;
+          .desiner-introduce-name-icon {
+            padding-left: 10px;
+            font-size: 20px;
+            svg {
+              color: #f27b04;
+              margin-right: 3px;
+            }
+          }
+        }
+      }
+    }
+    .designer-info-action-btn {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 34px;
+      .common-button-icon {
+        font-size: 16px;
+        margin-right: 5px;
+        .anticon-mail {
+          vertical-align: text-bottom;
+          svg {
+            color: #333;
+          }
+        }
+      }
+      .add-focus-btn {
+        margin-right: 10px;
+        .common-button-icon {
+          svg {
+            color: #fff;
+            font-weight: bold;
+          }
+        }
+      }
     }
     .correlation-index {
-      li {
+      .correlation--index-label {
         display: flex;
-        line-height: 35px;
+        line-height: 32px;
         justify-content: space-between;
+        font-size: 14px;
+        color: #666666;
+        .emphasis-label {
+          color: #222;
+        }
+        .correlation-index-area {
+          font-size: 14px;
+          &:first-child {
+            margin-right: 20px;
+          }
+        }
+        .correlation-index-val {
+          font-size: 18px;
+          color: #222;
+        }
+      }
+    }
+    .identity-activation-date {
+      margin-top: 20px;
+      padding: 21px 0 5px;
+      border-top: solid 1px #efefef;
+      font-size: 14px;
+      color: #999;
+      .identity-label {
+        color: #666;
+        margin-left: 14px;
+      }
+    }
+    .activation-date-detail {
+      display: flex;
+      justify-content: space-between;
+      .activation-date {
+        color: #bbbbbb;
+        font-size: 12px;
       }
     }
   }
   .information-2 {
     box-shadow: 0 0 5px rgb(0 0 0 / 10%);
     border-radius: 3px;
+    margin-top: 25px;
+    padding: 20px;
+  }
+  .designer-copyright {
+    text-align: center;
+    padding: 30px 0;
+    color: #888;
+    .designer-copyright-name {
+      color: #444;
+    }
   }
 }
