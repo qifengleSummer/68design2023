@@ -1,6 +1,5 @@
 import './WorksCollection.less'
-import WorkItemDetail from '@/pages/components/workItemDetail/WorkItemDetail'
-import MenuFilter from '@/pages/components/menuFilter/MenuFilter'
+import WorksCollectionList from '@/pages/components/worksCollectionList/WorksCollectionList'
 import { useState } from 'react'
 
 const WorksCollection = () => {
@@ -29,8 +28,7 @@ const WorksCollection = () => {
           收藏
         </span>
       </p>
-      <MenuFilter />
-      <WorkItemDetail widthVal="33.3" />
+      <WorksCollectionList />
     </div>
   )
 }

@@ -7,8 +7,9 @@ import {
   MailOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons'
-import { Form, Input, Avatar, Space } from 'antd'
+import { Form, Input, Space } from 'antd'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
+import PersonalAvatar from '@/pages/components/personalAvatar/PersonalAvatar'
 const { TextArea } = Input
 
 const WorkListDesignerInfo = () => {
@@ -32,10 +33,7 @@ const WorkListDesignerInfo = () => {
     <div className="work-list-designer-info">
       <div className="information-1">
         <div className="avatar-container">
-          <Avatar
-            className="avatar-img"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          />
+          <PersonalAvatar />
           <ul className="desiner-introduce">
             <li className="desiner-introduce-li desiner-introduce-name">
               <b>地以超</b>

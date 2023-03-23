@@ -1,5 +1,5 @@
 import './DesignerDetailInfo.less'
-import { Avatar } from 'antd'
+import PersonalAvatar from '@/pages/components/personalAvatar/PersonalAvatar'
 import picPic1 from '@/assets/imgs/homePage/pic-1.jpg'
 import picPic2 from '@/assets/imgs/homePage/pic-2.jpg'
 import picPic3 from '@/assets/imgs/homePage/pic-3.jpg'
@@ -11,10 +11,7 @@ const DesignerDetailInfo = ({ designerInfo }) => {
     <div className="designer-detail-dialog">
       <div className="designer-relation-info">
         <div className="avatar-name">
-          <Avatar
-            className="avatar-img"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          />
+          <PersonalAvatar />
           <div>
             <p>
               <b className="designer-dialog-name">{designerInfo.author}</b>

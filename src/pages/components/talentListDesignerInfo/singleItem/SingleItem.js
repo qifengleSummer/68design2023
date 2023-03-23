@@ -1,7 +1,7 @@
 import './SingleItem.less'
-import { Avatar } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
+import PersonalAvatar from '@/pages/components/personalAvatar/PersonalAvatar'
 import TagList from '@/pages/components/tagList/TagList'
 
 const list = [
@@ -32,10 +32,7 @@ const SingleItem = () => {
     <li key={index} className="talent-list-li">
       <div className="avatar-container">
         <Link to="/designer-personal-space">
-          <Avatar
-            className="avatar-img"
-            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-          />
+          <PersonalAvatar />
         </Link>
         <div className="desiner-introduce">
           <Link className="designer-name" to="/designer-personal-space">

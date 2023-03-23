@@ -9,3 +9,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* font size */
+.fontSize18 {
+  font-size: 18px;
+}
+
+/* margin-bottom */
+.g_mb10 {
+  margin-bottom: 10px;
+}
+
+/* border-top */
+.border-top-f1 {
+  border-top: 1px solid #f1f1f1;
+}

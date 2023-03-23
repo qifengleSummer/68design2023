@@ -7,6 +7,7 @@ import DepartmentDetailMarket from '@/pages/departmentDetailMarket/DepartmentDet
 import DesignerWorksList from '@/pages/designerWorksList/DesignerWorksList'
 import DesignerDetailInfo from '@/pages/designerDetailInfo/DesignerDetailInfo'
 import TalentList from '@/pages/talentList/TalentList'
+import WorksList from '@/pages/worksList/WorksList'
 import DesignerPersonalSpace from '@/pages/designerPersonalSpace/DesignerPersonalSpace'
 import App from '@/App.js'
 
@@ -46,6 +47,10 @@ const router = createHashRouter([
       {
         path: '/talent-list',
         element: <TalentList />,
+      },
+      {
+        path: '/works-list',
+        element: <WorksList />,
       },
       {
         path: '/designer-personal-space',
