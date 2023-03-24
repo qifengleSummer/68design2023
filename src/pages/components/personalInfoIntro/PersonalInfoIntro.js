@@ -13,7 +13,10 @@ const PersonalInfoIntro = () => {
           <b>谢名字</b>
         </p>
         <p className="desinger-level">
-          <TagList tagList={[{ color: '#B3B7AE', text: 'D级服务方' }]} />
+          <TagList
+            consistentColor={{ backgroundColor: '#009836', color: '#fff' }}
+            tagList={[{ text: 'D级服务方' }]}
+          />
         </p>
         <div>
           <Space>

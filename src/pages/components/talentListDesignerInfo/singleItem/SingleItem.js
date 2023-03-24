@@ -49,21 +49,15 @@ const SingleItem = () => {
         <b className="designer-price">500</b>/月
         <div className="designer-price-tag">
           <TagList
-            tagList={[
-              { color: '#0CC0F4', text: '全职' },
-              { color: '#0CC0F4', text: '免费试用' },
-            ]}
+            consistentColor={{ backgroundColor: '#0CC0F4', color: '#fff' }}
+            tagList={[{ text: '全职' }, { text: '免费试用' }]}
           />
         </div>
       </div>
       <div className="work-scope">
         <TagList
-          fontColor="#666"
-          tagList={[
-            { color: '#F2F7F2', text: '官网设计' },
-            { color: '#F2F7F2', text: '运营类插画' },
-            { color: '#F2F7F2', text: 'AI' },
-          ]}
+          consistentColor={{ backgroundColor: '#F2F7F2', color: '#666' }}
+          tagList={[{ text: '官网设计' }, { text: '运营类插画' }, { text: 'AI' }]}
         />
       </div>
       <CommonButton

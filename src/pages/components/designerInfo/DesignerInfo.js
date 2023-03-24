@@ -1,28 +1,33 @@
 import './DesignerInfo.less'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import picDesigner from '@/assets/imgs/homePage/designer.jpg'
 import { apiGet } from '@/service/reqMethod'
 
 const DesignerInfo = () => {
+  const navigate = useNavigate()
   const [list, setList] = useState([])
   useEffect(() => {
     apiGet('/designerList', { a: 33 }).then((res) => {
       setList(res.data)
     })
   }, [])
-  const btnClicked = () => {}
+  const btnClicked = () => {
+    navigate('/designer-personal-space')
+  }
 
   return (
     <ul className="desiner-info-container">
       {list.map((item) => (
         <li key={item.id}>
           <div>
-            <img className="designer-avatar" src={picDesigner} alt="" />
+            <Link to="/designer-personal-space">
+              <img className="designer-avatar" src={picDesigner} alt="" />
+            </Link>
           </div>
           <div className="designer-name">
-            <Link className="designer-name-name" to="/designer-detail-info">
+            <Link className="designer-name-name" to="/designer-personal-space">
               {item.name}
             </Link>
             <span

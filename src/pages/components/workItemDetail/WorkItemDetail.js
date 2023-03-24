@@ -42,7 +42,9 @@ const WorkItemDetail = ({ detailConfig, widthVal = 20 }) => {
               </div>
             )}
             <div className="wp-type">
-              <Link className="text-color">{item.type}</Link>
+              <Link to="/works-list" className="text-color">
+                {item.type}
+              </Link>
             </div>
             <div className="wp-star">
               <span>

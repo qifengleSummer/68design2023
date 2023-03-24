@@ -5,7 +5,6 @@ import Register from '@/pages/register/Register'
 import ForgetPwd from '@/pages/forgetPwd/ForgetPwd'
 import DepartmentDetailMarket from '@/pages/departmentDetailMarket/DepartmentDetailMarket'
 import DesignerWorksList from '@/pages/designerWorksList/DesignerWorksList'
-import DesignerDetailInfo from '@/pages/designerDetailInfo/DesignerDetailInfo'
 import TalentList from '@/pages/talentList/TalentList'
 import WorksList from '@/pages/worksList/WorksList'
 import DesignerPersonalSpace from '@/pages/designerPersonalSpace/DesignerPersonalSpace'
@@ -39,10 +38,6 @@ const router = createHashRouter([
       {
         path: '/designer-works-list',
         element: <DesignerWorksList />,
-      },
-      {
-        path: '/designer-detail-info',
-        element: <DesignerDetailInfo />,
       },
       {
         path: '/talent-list',

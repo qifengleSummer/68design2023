@@ -12,7 +12,11 @@ const WorkContact = () => {
       <Space>
         <b className="p-price">8K</b>
         <span>元/月</span>
-        <TagList tagList={[{ color: '#0CC0F4', text: '全职' }]} />
+        <TagList
+          consistentColor={{ backgroundColor: '#0CC0F4', color: '#fff' }}
+          allowHoverColor
+          tagList={[{ text: '全职' }]}
+        />
       </Space>
       <p className="less-work-time">
         工作日不少于 <span className="detail-work-time">3</span> 小时
