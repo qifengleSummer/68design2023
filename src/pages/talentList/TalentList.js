@@ -3,14 +3,13 @@ import TalentListDesignerInfo from '@/pages/components/talentListDesignerInfo/Ta
 import FilterCriteria from './filterCriteria/FilterCriteria'
 
 const TalentList = () => {
+  const getFilterCondition = () => {
+
+  }
   return (
     <div className="talent-list-container">
-      <div style={{ height: '230px' }}>
-        <FilterCriteria />
-      </div>
-      <div>
-        <TalentListDesignerInfo />
-      </div>
+      <FilterCriteria getFilterCondition={getFilterCondition}/>
+      <TalentListDesignerInfo />
     </div>
   )
 }

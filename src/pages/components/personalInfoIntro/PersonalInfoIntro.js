@@ -12,12 +12,12 @@ const PersonalInfoIntro = () => {
         <p className="name">
           <b>谢名字</b>
         </p>
-        <p className="desinger-level">
+        <div className="desinger-level">
           <TagList
             consistentColor={{ backgroundColor: '#009836', color: '#fff' }}
             tagList={[{ text: 'D级服务方' }]}
           />
-        </p>
+        </div>
         <div>
           <Space>
             <EnvironmentOutlined />

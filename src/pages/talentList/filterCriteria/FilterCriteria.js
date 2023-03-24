@@ -1,23 +1,16 @@
-import TagList from '@/pages/components/tagList/TagList'
-
-const tagList = [
-  { text: '全部' },
-  { text: '品牌设计' },
-  { text: '网站设计' },
-  { text: '电商设计' },
-  { text: 'ui设计' },
-  { text: '插画' },
-  { text: '室内设计' },
-]
+import './FilterCriteria.less'
+import FilterIndustry from './filterItem/FilterIndustry'
+// import FilterType from './filterItem/FilterType'
+import FilterWorkType from './filterItem/FilterWorkType'
+import FilterOther from './filterItem/FilterOther'
 
 const FilterCriteria = () => {
   return (
-    <div>
-      <TagList
-        activeMode
-        activeColor={{ backgroundColor: '#14A900', color: '#fff' }}
-        tagList={tagList}
-      />
+    <div className="filter-criteria-container border-E7">
+      <FilterIndustry />
+      {/* <FilterType /> */}
+      <FilterWorkType />
+      <FilterOther />
     </div>
   )
 }
