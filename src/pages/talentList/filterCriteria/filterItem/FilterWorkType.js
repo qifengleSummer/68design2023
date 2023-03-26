@@ -1,4 +1,5 @@
 import TagList from '@/pages/components/tagList/TagList'
+import { FILTERWORKTYPESTORE } from '@/store/talentListSlice'
 
 const tagList = [{ text: '全部' }, { text: '单个任务' }, { text: '兼职包月' }, { text: '全职包月' }]
 const FilterWorkType = () => {
@@ -6,6 +7,7 @@ const FilterWorkType = () => {
     <div className="talent-filter filter-work-type-container">
       <span className="talent-filter-babel">方式</span>
       <TagList
+        actionName={FILTERWORKTYPESTORE}
         activeMode
         activeColor={{ backgroundColor: '#14A900', color: '#fff' }}
         tagList={tagList}

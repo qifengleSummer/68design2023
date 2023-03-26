@@ -1,7 +1,16 @@
 import SingleTag from './singleTag/SingleTag'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 const TagList = (props) => {
-  let [activeIndex, setActiveIndex] = useState(0)
+  const dispatch = useDispatch()
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const changeActiveIndex = (index) => {
+    setActiveIndex(index)
+    dispatch({ payload: index, type: props.actionName }) // 更新store
+  }
+
   return (
     <div className="common-tag-list-container" style={{ display: 'inline-block' }}>
       {props.tagList.map((item, index) => (
@@ -9,7 +18,7 @@ const TagList = (props) => {
           key={index}
           tagConfig={props}
           singleData={item}
-          setActiveIndexF={setActiveIndex}
+          setActiveIndexF={changeActiveIndex}
           currIndex={index}
           activeIndex={activeIndex}
         />

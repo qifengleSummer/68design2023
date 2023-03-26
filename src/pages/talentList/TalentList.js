@@ -3,12 +3,9 @@ import TalentListDesignerInfo from '@/pages/components/talentListDesignerInfo/Ta
 import FilterCriteria from './filterCriteria/FilterCriteria'
 
 const TalentList = () => {
-  const getFilterCondition = () => {
-
-  }
   return (
     <div className="talent-list-container">
-      <FilterCriteria getFilterCondition={getFilterCondition}/>
+      <FilterCriteria />
       <TalentListDesignerInfo />
     </div>
   )

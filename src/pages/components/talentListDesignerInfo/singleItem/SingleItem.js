@@ -3,30 +3,21 @@ import { Link, useNavigate } from 'react-router-dom'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import PersonalAvatar from '@/pages/components/personalAvatar/PersonalAvatar'
 import TagList from '@/pages/components/tagList/TagList'
-
-const list = [
-  {
-    a: 1,
-  },
-  {
-    a: 13,
-  },
-  {
-    a: 14,
-  },
-  {
-    a: 15,
-  },
-  {
-    a: 16,
-  },
-  {
-    a: 17,
-  },
-]
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 const SingleItem = () => {
   const navigate = useNavigate()
+  const [list, setList] = useState([])
+  const { filterIndustryStore, filterWorkTypeStore } = useSelector((state) => state.talentList) // 获取store
+  useEffect(() => {
+    setTimeout(() => {
+      // 请求数据
+      let tlist = new Array(Math.ceil(Math.random() * 5) + 1).fill({ a: '111' })
+      setList(tlist)
+    }, 1000)
+  }, [filterIndustryStore, filterWorkTypeStore])
+
   const btnClicked = () => navigate('/designer-personal-space')
   return list.map((item, index) => (
     <li key={index} className="talent-list-li">
@@ -36,7 +27,7 @@ const SingleItem = () => {
         </Link>
         <div className="desiner-introduce">
           <Link className="designer-name" to="/designer-personal-space">
-            <b>谢名字</b>
+            <b>谢名字{Math.random().toFixed(3)}</b>
           </Link>
           <p className="designer-type">D级服务方</p>
           <p className="designer-tag">
