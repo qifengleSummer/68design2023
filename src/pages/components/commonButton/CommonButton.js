@@ -1,5 +1,6 @@
 import './CommonButton.less'
 import { Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
 const CommonButton = ({
   title,
@@ -12,8 +13,11 @@ const CommonButton = ({
   color,
   btnClicked,
   setIcon,
+  navUrl,
 }) => {
+  const navigate = useNavigate()
   const commonBtnClicked = () => {
+    if (navUrl) return navigate('/designer-personal-space')
     btnClicked()
   }
   let btnConfig = {

@@ -1,5 +1,5 @@
 import './SingleItem.less'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import PersonalAvatar from '@/pages/components/personalAvatar/PersonalAvatar'
 import TagList from '@/pages/components/tagList/TagList'
@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 const SingleItem = () => {
-  const navigate = useNavigate()
   const [list, setList] = useState([])
   const { filterIndustryStore, filterWorkTypeStore } = useSelector((state) => state.talentList) // 获取store
   useEffect(() => {
@@ -18,7 +17,6 @@ const SingleItem = () => {
     }, 1000)
   }, [filterIndustryStore, filterWorkTypeStore])
 
-  const btnClicked = () => navigate('/designer-personal-space')
   return list.map((item, index) => (
     <li key={index} className="talent-list-li">
       <div className="avatar-container">
@@ -27,7 +25,7 @@ const SingleItem = () => {
         </Link>
         <div className="desiner-introduce">
           <Link className="designer-name" to="/designer-personal-space">
-            <b>谢名字{Math.random().toFixed(3)}</b>
+            <b>谢名字</b>
           </Link>
           <p className="designer-type">D级服务方</p>
           <p className="designer-tag">
@@ -52,7 +50,7 @@ const SingleItem = () => {
         />
       </div>
       <CommonButton
-        btnClicked={btnClicked}
+        navUrl="/designer-personal-space"
         title="查看"
         size="middle"
         emphasize
