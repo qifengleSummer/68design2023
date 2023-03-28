@@ -302,6 +302,11 @@ app.get('/designerList', (req, res) => {
   )
 })
 
+// 人才页面list
+app.get('/apiTalentList', (req, res) => {
+  res.json(resConfig(new Array(Math.ceil(Math.random() * 5) + 1).fill({ a: '111' })))
+})
+
 app.post('/testPost', (req, res) => {
   res.send(resConfig('hello testPost'))
 })

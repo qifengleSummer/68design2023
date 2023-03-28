@@ -1,10 +1,15 @@
 import './TalentListDesignerInfo.less'
 import SingleItem from './singleItem/SingleItem'
+import TalentPagination from './talentPagination/TalentPagination'
+
 const TalentListDesignerInfo = () => {
   return (
-    <ul className="talent-list-ul">
-      <SingleItem />
-    </ul>
+    <div>
+      <ul className="talent-list-ul">
+        <SingleItem />
+      </ul>
+      <TalentPagination />
+    </div>
   )
 }
 

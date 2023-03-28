@@ -3,19 +3,22 @@ import { Link } from 'react-router-dom'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import PersonalAvatar from '@/pages/components/personalAvatar/PersonalAvatar'
 import TagList from '@/pages/components/tagList/TagList'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
+import { fetchTodos } from '@/store/talentListSlice/index'
 
 const SingleItem = () => {
   const [list, setList] = useState([])
-  const { filterIndustryStore, filterWorkTypeStore } = useSelector((state) => state.talentList) // 获取store
+  const dispatch = useDispatch()
+  const { filterIndustryStore, filterWorkTypeStore, pageNum } = useSelector(
+    (state) => state.talentList
+  ) // 获取store
   useEffect(() => {
-    setTimeout(() => {
-      // 请求数据
-      let tlist = new Array(Math.ceil(Math.random() * 5) + 1).fill({ a: '111' })
-      setList(tlist)
-    }, 1000)
-  }, [filterIndustryStore, filterWorkTypeStore])
+    dispatch(fetchTodos()).then((res) => {
+      // 获取table数据
+      setList(res.payload.data)
+    })
+  }, [filterIndustryStore, filterWorkTypeStore, pageNum])
 
   return list.map((item, index) => (
     <li key={index} className="talent-list-li">

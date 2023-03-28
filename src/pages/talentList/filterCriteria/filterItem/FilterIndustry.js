@@ -1,5 +1,5 @@
 import TagList from '@/pages/components/tagList/TagList'
-import { FILTERINDUSTRYSTORE } from '@/store/talentListSlice'
+import { FILTER_INDUSTRY_STORE } from '@/store/talentListSlice'
 
 const tagList = [
   { text: '全部' },
@@ -23,7 +23,7 @@ const FilterIndustry = () => {
     <div className="talent-filter filter-industry-container">
       <span className="talent-filter-babel">行业</span>
       <TagList
-        actionName={FILTERINDUSTRYSTORE}
+        actionName={FILTER_INDUSTRY_STORE}
         activeMode
         activeColor={{ backgroundColor: '#14A900', color: '#fff' }}
         tagList={tagList}
