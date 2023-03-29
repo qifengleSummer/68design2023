@@ -1,8 +1,8 @@
 import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit'
 import { apiGet } from '@/service/reqMethod'
 
-export const WORK_COLLECTION_RESET = 'workCollection/reset'
-export const collectionReset = createAction(WORK_COLLECTION_RESET)
+export const STORE_RESET = 'workCollection/reset'
+export const storeReset = createAction(STORE_RESET)
 
 export const WORK_COLLECTION_PAGE_NUM = 'workCollection/pageNum'
 export const collectionPageNum = createAction(WORK_COLLECTION_PAGE_NUM)
@@ -43,7 +43,7 @@ const initialState = {
 }
 
 const workCollectionSlice = createReducer(initialState, (builder) => {
-  builder.addCase(collectionReset, () => {
+  builder.addCase(storeReset, () => {
     // 重置store状态
     return initialState
   })

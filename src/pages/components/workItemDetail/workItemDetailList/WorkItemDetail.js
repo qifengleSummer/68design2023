@@ -16,6 +16,7 @@ const WorkItemDetail = ({ detailConfig, widthVal = 20 }) => {
 
   useEffect(() => {
     dispatch(getWorkCollectionList(pageNum)).then((res) => {
+      // 进入设计师collection页面会看到有2个请求
       setList(res.payload.data)
     })
   }, [pageNum, category, newWork, judge])
