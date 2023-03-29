@@ -1,10 +1,10 @@
-import WorkItemDetail from '@/pages/components/workItemDetail/WorkItemDetail'
+import WorkItemDetailContainer from '@/pages/components/workItemDetail/WorkItemDetailContainer'
 import MenuFilter from '@/pages/components/menuFilter/MenuFilter'
 const WorksCollectionList = ({ widthVal = 33.3 }) => {
   return (
     <div>
       <MenuFilter />
-      <WorkItemDetail widthVal={widthVal} />
+      <WorkItemDetailContainer widthVal={widthVal} detailConfig={{ needAuthorName: true }} />
     </div>
   )
 }

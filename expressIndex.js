@@ -2,6 +2,29 @@ const express = require('express')
 const app = express()
 const port = 9881
 
+const nameArr = [
+  '阙造',
+  '广锡一',
+  '席寺',
+  '扶驾',
+  '郑萱黄',
+  '林樊牵',
+  '孟登元',
+  '鱼彰',
+  '皮忧暑',
+  '左稗',
+  '宦醇',
+  '糜弋招',
+  '席准',
+  '方抑',
+  '乌泔',
+  '苗鲁',
+  '孟候依',
+  '龙珠饯',
+  '洪打鹰',
+  '缪负铎',
+]
+
 app.all('*', function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Content-Type')
@@ -20,7 +43,7 @@ const resConfig = (data) => {
 }
 
 // 获取首页作品list
-app.get('/workItemDetailList', (req, res) => {
+app.get('/apiWorkCollectionList', (req, res) => {
   res.json(
     resConfig([
       {
@@ -304,7 +327,16 @@ app.get('/designerList', (req, res) => {
 
 // 人才页面list
 app.get('/apiTalentList', (req, res) => {
-  res.json(resConfig(new Array(Math.ceil(Math.random() * 5) + 1).fill({ a: '111' })))
+  let list = new Array(Math.ceil(Math.random() * 5 + 1)).fill({
+    name: `${nameArr[Math.ceil(Math.random() * 18)]}`,
+    level: 'D',
+    type: '网站设计',
+    tagTime: '10',
+    price: 500,
+    tagList: [{ text: '全职' }, { text: '免费试用' }],
+    workType: [{ text: '官网设计' }, { text: '运营类插画' }, { text: 'AI' }],
+  })
+  res.json(resConfig(list))
 })
 
 app.post('/testPost', (req, res) => {

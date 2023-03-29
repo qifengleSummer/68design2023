@@ -13,6 +13,7 @@ const SingleItem = () => {
   const { filterIndustryStore, filterWorkTypeStore, pageNum } = useSelector(
     (state) => state.talentList
   ) // 获取store
+
   useEffect(() => {
     dispatch(fetchTodos()).then((res) => {
       // 获取table数据
@@ -28,28 +29,28 @@ const SingleItem = () => {
         </Link>
         <div className="desiner-introduce">
           <Link className="designer-name" to="/designer-personal-space">
-            <b>谢名字</b>
+            <b>{item.name}</b>
           </Link>
-          <p className="designer-type">D级服务方</p>
+          <p className="designer-type">{item.level}级服务方</p>
           <p className="designer-tag">
-            <span className="designer-tag-type">网站设计</span>
-            <span className="designer-tag-time">10年</span>
+            <span className="designer-tag-type">{item.type}</span>
+            <span className="designer-tag-time">{item.time}年</span>
           </p>
         </div>
       </div>
       <div className="designer-price-container">
-        <b className="designer-price">500</b>/月
+        <b className="designer-price">{item.price}</b>/月
         <div className="designer-price-tag">
           <TagList
             consistentColor={{ backgroundColor: '#0CC0F4', color: '#fff' }}
-            tagList={[{ text: '全职' }, { text: '免费试用' }]}
+            tagList={item.tagList}
           />
         </div>
       </div>
       <div className="work-scope">
         <TagList
           consistentColor={{ backgroundColor: '#F2F7F2', color: '#666' }}
-          tagList={[{ text: '官网设计' }, { text: '运营类插画' }, { text: 'AI' }]}
+          tagList={item.workType}
         />
       </div>
       <CommonButton

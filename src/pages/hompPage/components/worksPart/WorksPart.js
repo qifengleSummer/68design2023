@@ -1,6 +1,6 @@
 import './WorksPart.less'
 import { Link } from 'react-router-dom'
-import WorkItemDetail from '@/pages/components/workItemDetail/WorkItemDetail'
+import WorkItemDetailContainer from '@/pages/components/workItemDetail/WorkItemDetailContainer'
 
 const WorksPart = () => {
   return (
@@ -13,7 +13,7 @@ const WorksPart = () => {
           <b>最新作品</b>
         </Link>
       </div>
-      <WorkItemDetail detailConfig={{ needAuthorName: true, needStar: true }} />
+      <WorkItemDetailContainer detailConfig={{ needAuthorName: true, needStar: true }} />
     </div>
   )
 }

@@ -1,0 +1,67 @@
+.works-part-content-container {
+  overflow: hidden;
+  .works-part-item {
+    margin-bottom: 40px;
+    float: left;
+  }
+  .works-part-content {
+    margin-left: 13px;
+    margin-right: 13px;
+    font-size: 14px;
+    color: #aaa;
+    background: #fff;
+    border-radius: 3px;
+    transition: ease 0.3s;
+    &:hover {
+      box-shadow: 0 0 15px rgb(0 0 0 / 15%);
+      margin-top: -2px;
+      margin-bottom: 2px;
+    }
+    .wp-img {
+      width: 100%;
+      height: 130px;
+      background-color: antiquewhite;
+      img {
+        max-width: 100%;
+        height: 130px;
+        border-radius: 3px;
+        vertical-align: middle;
+      }
+    }
+    .wp-title {
+      padding-left: 10px;
+      margin: 10px 0;
+      max-width: inherit;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      .text-color {
+        color: #777;
+      }
+    }
+    .wp-author {
+      padding-left: 10px;
+      margin: 10px 0;
+      color: #222;
+    }
+    .wp-type {
+      padding-left: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #efefef;
+      .text-color {
+        color: #bbb;
+      }
+    }
+    .text-color {
+      &:hover {
+        color: #14a900;
+      }
+    }
+    .wp-star {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}

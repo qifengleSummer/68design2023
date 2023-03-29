@@ -1,6 +1,7 @@
 import './TalentListDesignerInfo.less'
 import SingleItem from './singleItem/SingleItem'
-import TalentPagination from './talentPagination/TalentPagination'
+import TalentPagination from '../commonPagination/TalentPagination'
+import { FILTER_PAGE_NUM } from '@/store/talentListSlice/index'
 
 const TalentListDesignerInfo = () => {
   return (
@@ -8,7 +9,7 @@ const TalentListDesignerInfo = () => {
       <ul className="talent-list-ul">
         <SingleItem />
       </ul>
-      <TalentPagination />
+      <TalentPagination actionPageName={FILTER_PAGE_NUM} getStoreName="talentList" />
     </div>
   )
 }

@@ -7,8 +7,10 @@ const TagList = (props) => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const changeActiveIndex = (index) => {
+    if (!props.canClick) return // 不是所有tag都能被点击
     setActiveIndex(index)
-    dispatch({ payload: index, type: props.actionName }) // 更新store
+    dispatch({ payload: index, type: props.actionName }) // 更新state，tagList中active的single tag
+    dispatch({ payload: 1, type: props.talentPageName }) // 切换tag后，要重置当前tag里的页码为1
   }
 
   return (

@@ -11,7 +11,7 @@ const DesignerDetailInfo = ({ designerInfo }) => {
     <div className="designer-detail-dialog">
       <div className="designer-relation-info">
         <div className="avatar-name">
-          <PersonalAvatar />
+          <PersonalAvatar size="50" />
           <div>
             <p>
               <b className="designer-dialog-name">{designerInfo.author}</b>

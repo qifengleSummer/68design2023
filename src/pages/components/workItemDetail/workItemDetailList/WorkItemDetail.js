@@ -3,18 +3,21 @@ import { StarFilled, EyeFilled, DashboardOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Popover } from 'antd'
-import ThumbUp from '../ThumbUp'
-import DesignerDetailInfo from './designerDetailInfo/DesignerDetailInfo.js'
+import ThumbUp from '../../ThumbUp'
+import DesignerDetailInfo from '../designerDetailInfo/DesignerDetailInfo.js'
 import picPic from '@/assets/imgs/homePage/picture.jpg'
-import { apiGet } from '@/service/reqMethod'
+import { getWorkCollectionList } from '@/store/workCollectionSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 const WorkItemDetail = ({ detailConfig, widthVal = 20 }) => {
+  const dispatch = useDispatch()
   const [list, setList] = useState([])
+  const { pageNum } = useSelector((state) => state.workCollectionList)
   useEffect(() => {
-    apiGet('/workItemDetailList', { a: 33 }).then((res) => {
-      setList(res.data)
+    dispatch(getWorkCollectionList(pageNum)).then((res) => {
+      setList(res.payload.data)
     })
-  }, [])
+  }, [pageNum])
 
   return (
     <div className="works-part-content-container">

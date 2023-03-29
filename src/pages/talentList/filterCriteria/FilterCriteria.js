@@ -2,7 +2,7 @@ import './FilterCriteria.less'
 import FilterIndustry from './filterItem/FilterIndustry'
 // import FilterType from './filterItem/FilterType'
 import FilterWorkType from './filterItem/FilterWorkType'
-import FilterOther from './filterItem/FilterOther'
+// import FilterOther from './filterItem/FilterOther'
 
 const FilterCriteria = () => {
   return (
@@ -10,7 +10,7 @@ const FilterCriteria = () => {
       <FilterIndustry />
       {/* <FilterType /> */}
       <FilterWorkType />
-      <FilterOther />
+      {/* <FilterOther /> */}
     </div>
   )
 }
