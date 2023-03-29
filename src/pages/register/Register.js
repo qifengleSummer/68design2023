@@ -1,7 +1,7 @@
 import './Register.less'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '@/assets/imgs/logo.svg'
+import logo from '@/assets/imgs/logo.JPG'
 import { Button, Form, Input } from 'antd'
 
 const layout = {

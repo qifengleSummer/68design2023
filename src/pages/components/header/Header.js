@@ -1,5 +1,5 @@
 import './Header.less'
-import logo from '@/assets/imgs/logo.svg'
+import logo from '@/assets/imgs/logo.JPG'
 import { useNavigate, Link } from 'react-router-dom'
 import { Col, Row, Space } from 'antd'
 

@@ -1,5 +1,5 @@
 import './Login.less'
-import logo from '@/assets/imgs/logo.svg'
+import logo from '@/assets/imgs/logo.JPG'
 import { Tabs, Button, Form, Input } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react'

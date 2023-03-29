@@ -1,5 +1,5 @@
 import './ForgetPwd.less'
-import logo from '@/assets/imgs/logo.svg'
+import logo from '@/assets/imgs/logo.JPG'
 import { useRef } from 'react'
 import { Button, Form, Input } from 'antd'
 import { Link } from 'react-router-dom'

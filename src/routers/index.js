@@ -8,6 +8,7 @@ import DesignerWorksList from '@/pages/designerWorksList/DesignerWorksList'
 import TalentList from '@/pages/talentList/TalentList'
 import WorksList from '@/pages/worksList/WorksList'
 import DesignerPersonalSpace from '@/pages/designerPersonalSpace/DesignerPersonalSpace'
+import NotFound from '@/pages/notFound/NotFound'
 import App from '@/App.js'
 
 const router = createHashRouter([
@@ -22,6 +23,10 @@ const router = createHashRouter([
   {
     path: '/forget-pwd',
     element: <ForgetPwd />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
   {
     path: '/',
