@@ -12,12 +12,13 @@ import { useSelector, useDispatch } from 'react-redux'
 const WorkItemDetail = ({ detailConfig, widthVal = 20 }) => {
   const dispatch = useDispatch()
   const [list, setList] = useState([])
-  const { pageNum } = useSelector((state) => state.workCollectionList)
+  const { pageNum, category, newWork, judge } = useSelector((state) => state.workCollectionList)
+
   useEffect(() => {
     dispatch(getWorkCollectionList(pageNum)).then((res) => {
       setList(res.payload.data)
     })
-  }, [pageNum])
+  }, [pageNum, category, newWork, judge])
 
   return (
     <div className="works-part-content-container">
