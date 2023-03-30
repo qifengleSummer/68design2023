@@ -15,11 +15,17 @@ const WorkItemDetail = ({ detailConfig, widthVal = 20 }) => {
   const { pageNum, category, newWork, judge } = useSelector((state) => state.workCollectionList)
 
   useEffect(() => {
-    dispatch(getWorkCollectionList(pageNum)).then((res) => {
-      // 进入设计师collection页面会看到有2个请求
-      setList(res.payload.data)
-    })
+    fetchData()
   }, [pageNum, category, newWork, judge])
+
+  const fetchData = async () => {
+    try {
+      const res = await dispatch(getWorkCollectionList(pageNum)).unwrap() // 进入设计师collection页面会看到有2个请求
+      setList(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="works-part-content-container">

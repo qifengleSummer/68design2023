@@ -15,11 +15,17 @@ const SingleItem = () => {
   ) // 获取store
 
   useEffect(() => {
-    dispatch(fetchTodos()).then((res) => {
-      // 获取table数据
-      setList(res.payload.data)
-    })
+    fetchData()
   }, [filterIndustryStore, filterWorkTypeStore, pageNum])
+
+  const fetchData = async () => {
+    try {
+      const res = await dispatch(fetchTodos()).unwrap()
+      setList(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return list.map((item, index) => (
     <li key={index} className="talent-list-li">
