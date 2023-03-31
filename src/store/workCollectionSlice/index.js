@@ -1,7 +1,5 @@
-import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit'
-// import { apiGet } from '@/service/reqMethod'
-import { sleepFun } from '@/utils/common.js'
-const constantData = require('@/utils/constant.js')
+import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit' // import { apiGet } from '@/service/reqMethod'
+import axios from 'axios'
 
 export const STORE_RESET = 'workCollection/reset'
 export const storeReset = createAction(STORE_RESET)
@@ -21,10 +19,6 @@ export const collectionJudge = createAction(WORK_COLLECTION_JUDGE)
 export const getWorkCollectionList = createAsyncThunk(
   'todos/getWorkCollectionList',
   async (dispatch, getState) => {
-    await sleepFun(300)
-    return new Promise((resolve) => {
-      resolve({ data: constantData.workCollectionData })
-    })
     // let { pageNum, category, newWork, judge } = getState.getState().workCollectionList
 
     // let params = {
@@ -33,10 +27,8 @@ export const getWorkCollectionList = createAsyncThunk(
     //   newWork: newWork,
     //   judge: judge,
     // }
-    // const response = await apiGet('/apiWorkCollectionList', {
-    //   ...params,
-    // })
-    // return response
+    const response = await axios.get('/apiWorkCollectionList')
+    return response.data
   }
 )
 

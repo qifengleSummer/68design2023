@@ -31,28 +31,72 @@ const Register = () => {
         name="control-ref"
         onFinish={onFinish}
         style={{ maxWidth: 600 }}
+        autoComplete="off"
       >
         <Form.Item
           name="phoneNo"
           label="手机号"
-          rules={[{ required: true, message: '请输入手机号' }]}
+          rules={[
+            {
+              validator: (_, value) => {
+                if (!value) return Promise.reject(new Error('请输入手机号'))
+                const reg = /^1[3456789]\d{9}$/
+                if (!reg.test(value)) return Promise.reject(new Error('输入的手机号格式不正确'))
+                Promise.resolve()
+              },
+            },
+          ]}
         >
           <Input />
         </Form.Item>
-        <Form.Item name="code" label="验证码" rules={[{ required: true, message: '请输入验证码' }]}>
+        <Form.Item
+          name="code"
+          label="验证码"
+          rules={[
+            {
+              validator: (_, value) => {
+                if (!value) return Promise.reject(new Error('请输入验证码'))
+                const reg = /^\d{6}$/
+                if (!reg.test(value)) return Promise.reject(new Error('请输入6位数字验证码'))
+                Promise.resolve()
+              },
+            },
+          ]}
+        >
           <Input />
         </Form.Item>
         <Form.Item
           name="phoneCode"
           label="短信码"
-          rules={[{ required: true, message: '请输入短信码' }]}
+          rules={[
+            {
+              validator: (_, value) => {
+                if (!value) return Promise.reject(new Error('请输入短信码'))
+                const reg = /^\d{6}$/
+                if (!reg.test(value)) return Promise.reject(new Error('请输入6位数字短信码'))
+                Promise.resolve()
+              },
+            },
+          ]}
         >
           <Input />
         </Form.Item>
         <Form.Item
           name="pwd"
           label="登录密码"
-          rules={[{ required: true, message: '请输入登录密码' }]}
+          rules={[
+            {
+              validator: (_, value) => {
+                if (!value) return Promise.reject(new Error('请输入登录密码'))
+                const reg = /^(?![a-zA-Z]+$)(?!\d+$)(?![^\da-zA-Z\s]+$).{6,18}$/
+                if (!reg.test(value))
+                  return Promise.reject(
+                    new Error('请输入由字母、数字、特殊字符，任意2种组成，6-18位')
+                  )
+                Promise.resolve()
+              },
+            },
+          ]}
         >
           <Input.Password />
         </Form.Item>

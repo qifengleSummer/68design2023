@@ -3,9 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import picDesigner from '@/assets/imgs/homePage/designer.jpg'
-// import { apiGet } from '@/service/reqMethod'
-import { sleepFun } from '@/utils/common.js'
-const constantData = require('@/utils/constant.js')
+import axios from 'axios'
 
 const DesignerInfo = () => {
   const navigate = useNavigate()
@@ -15,9 +13,8 @@ const DesignerInfo = () => {
   }, [])
 
   const fetchData = async () => {
-    await sleepFun(300)
-    // const res = await apiGet('/designerList', { a: 33 })
-    setList(constantData.designerData)
+    const res = await axios.get('/designerList')
+    setList(res.data.data)
   }
 
   const btnClicked = () => {

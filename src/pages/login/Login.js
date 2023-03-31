@@ -61,6 +61,7 @@ const Login = () => {
         name="control-ref"
         onFinish={onFinish}
         style={{ maxWidth: 600 }}
+        autoComplete="off"
       >
         {tabKey === 'pwd' ? <PwdForm /> : <MsgForm />}
         <Form.Item {...tailLayout}>
