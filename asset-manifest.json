@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2d223c6a.css",
+    "main.js": "./static/js/main.c1fc8c22.js",
+    "static/js/787.88e21089.chunk.js": "./static/js/787.88e21089.chunk.js",
+    "static/media/avatarPic.png": "./static/media/avatarPic.1307381e5cb9d25d6b54.png",
+    "static/media/pic-2.jpg": "./static/media/pic-2.e431a0c250eafc3dc7d3.jpg",
+    "static/media/business.jpg": "./static/media/business.e7e3fb296000a3327e3c.jpg",
+    "static/media/brand.jpg": "./static/media/brand.e8a2d3c555d4cc22235c.jpg",
+    "static/media/designer.jpg": "./static/media/designer.2899d0fa44e7acfd803d.jpg",
+    "static/media/pic-3.jpg": "./static/media/pic-3.22924d926d49aa4d4954.jpg",
+    "static/media/picture.jpg": "./static/media/picture.333d683290f3d5fe3d36.jpg",
+    "static/media/logo.JPG": "./static/media/logo.0a6e83d4d8ce9cf6d845.JPG",
+    "static/media/pic-1.jpg": "./static/media/pic-1.039e44b856e2b6e3dafb.jpg",
+    "static/media/ui.jpg": "./static/media/ui.957406eacda316cba0eb.jpg",
+    "static/media/web.jpg": "./static/media/web.3985fc72e18c2d394bef.jpg",
+    "index.html": "./index.html",
+    "main.2d223c6a.css.map": "./static/css/main.2d223c6a.css.map",
+    "main.c1fc8c22.js.map": "./static/js/main.c1fc8c22.js.map",
+    "787.88e21089.chunk.js.map": "./static/js/787.88e21089.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d223c6a.css",
+    "static/js/main.c1fc8c22.js"
+  ]
+}
