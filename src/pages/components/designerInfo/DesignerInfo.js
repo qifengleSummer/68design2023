@@ -3,16 +3,23 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import picDesigner from '@/assets/imgs/homePage/designer.jpg'
-import { apiGet } from '@/service/reqMethod'
+// import { apiGet } from '@/service/reqMethod'
+import { sleepFun } from '@/utils/common.js'
+const constantData = require('@/utils/constant.js')
 
 const DesignerInfo = () => {
   const navigate = useNavigate()
   const [list, setList] = useState([])
   useEffect(() => {
-    apiGet('/designerList', { a: 33 }).then((res) => {
-      setList(res.data)
-    })
+    fetchData()
   }, [])
+
+  const fetchData = async () => {
+    await sleepFun(300)
+    // const res = await apiGet('/designerList', { a: 33 })
+    setList(constantData.designerData)
+  }
+
   const btnClicked = () => {
     navigate('/designer-personal-space')
   }

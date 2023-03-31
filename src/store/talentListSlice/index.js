@@ -1,5 +1,7 @@
 import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiGet } from '@/service/reqMethod'
+// import { apiGet } from '@/service/reqMethod'
+import { sleepFun } from '@/utils/common.js'
+const constantData = require('@/utils/constant.js')
 
 export const STORE_RESET = 'filter/reset'
 export const storeReset = createAction(STORE_RESET)
@@ -20,16 +22,21 @@ export const FILTER_PAGE_NUM = 'filter/pageNum'
 export const filterPageNum = createAction(FILTER_PAGE_NUM)
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (dispatch, getState) => {
-  let { pageNum, filterIndustryStore, filterWorkTypeStore } = getState.getState().talentList
-  let params = {
-    pageNum: pageNum,
-    industry: filterIndustryStore,
-    WorkType: filterWorkTypeStore,
-  }
-  const response = await apiGet('/apiTalentList', {
-    ...params,
+  await sleepFun(300)
+  return new Promise((resolve) => {
+    resolve({ data: constantData.talentData })
   })
-  return response
+
+  // let { pageNum, filterIndustryStore, filterWorkTypeStore } = getState.getState().talentList
+  // let params = {
+  //   pageNum: pageNum,
+  //   industry: filterIndustryStore,
+  //   WorkType: filterWorkTypeStore,
+  // }
+  // const response = await apiGet('/apiTalentList', {
+  //   ...params,
+  // })
+  // return response
 })
 
 const initialState = {

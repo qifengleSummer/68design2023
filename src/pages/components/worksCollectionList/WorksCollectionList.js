@@ -14,7 +14,7 @@ const WorksCollectionList = ({ widthVal = 33.3 }) => {
   return (
     <div>
       <MenuFilter />
-      <WorkItemDetailContainer widthVal={widthVal} detailConfig={{ needAuthorName: true }} />
+      <WorkItemDetailContainer widthVal={widthVal} />
     </div>
   )
 }
