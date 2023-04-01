@@ -1,5 +1,5 @@
 import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import { apiGet } from '@/service/reqMethod.js'
 
 export const STORE_RESET = 'filter/reset'
 export const storeReset = createAction(STORE_RESET)
@@ -20,13 +20,13 @@ export const FILTER_PAGE_NUM = 'filter/pageNum'
 export const filterPageNum = createAction(FILTER_PAGE_NUM)
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (dispatch, getState) => {
-  // let { pageNum, filterIndustryStore, filterWorkTypeStore } = getState.getState().talentList
-  // let params = {
-  //   pageNum: pageNum,
-  //   industry: filterIndustryStore,
-  //   WorkType: filterWorkTypeStore,
-  // }
-  const response = await axios.get('/apiTalentList')
+  let { pageNum, filterIndustryStore, filterWorkTypeStore } = getState.getState().talentList
+  let params = {
+    pageNum: pageNum,
+    industry: filterIndustryStore,
+    WorkType: filterWorkTypeStore,
+  }
+  const response = await apiGet({ url: '/apiTalentList', params })
   return response.data
 })
 

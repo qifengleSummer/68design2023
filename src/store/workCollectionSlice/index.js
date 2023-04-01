@@ -1,5 +1,5 @@
 import { createAction, createReducer, createAsyncThunk } from '@reduxjs/toolkit' // import { apiGet } from '@/service/reqMethod'
-import axios from 'axios'
+import { apiGet } from '@/service/reqMethod.js'
 
 export const STORE_RESET = 'workCollection/reset'
 export const storeReset = createAction(STORE_RESET)
@@ -19,15 +19,15 @@ export const collectionJudge = createAction(WORK_COLLECTION_JUDGE)
 export const getWorkCollectionList = createAsyncThunk(
   'todos/getWorkCollectionList',
   async (dispatch, getState) => {
-    // let { pageNum, category, newWork, judge } = getState.getState().workCollectionList
+    let { pageNum, category, newWork, judge } = getState.getState().workCollectionList
 
-    // let params = {
-    //   pageNum: pageNum,
-    //   category: category,
-    //   newWork: newWork,
-    //   judge: judge,
-    // }
-    const response = await axios.get('/apiWorkCollectionList')
+    let params = {
+      pageNum: pageNum,
+      category: category,
+      newWork: newWork,
+      judge: judge,
+    }
+    const response = await apiGet({ url: '/apiWorkCollectionList', params })
     return response.data
   }
 )

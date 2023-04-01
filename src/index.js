@@ -6,7 +6,7 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import { Provider } from 'react-redux'
 import { store } from '@/store'
-import '@/mockData/mLogin.js'
+import '@/mockData/mLogin.js' // 启用mockjs模拟数据
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

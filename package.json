@@ -28,7 +28,7 @@
     "deploy": "gh-pages -d build",
     "serve": "react-app-rewired start",
     "server": "nodemon expressIndex",
-    "start": "concurrently \"npm run serve\" ",
+    "start": "concurrently \"npm run server\" \"npm run serve\" ",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"

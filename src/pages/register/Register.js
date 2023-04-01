@@ -1,5 +1,5 @@
 import './Register.less'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '@/assets/imgs/logo.JPG'
 import { Button, Form, Input, Space } from 'antd'
@@ -13,7 +13,7 @@ import verifyCode7 from '@/assets/verifyCode/verify7.png'
 import verifyCode8 from '@/assets/verifyCode/verify8.png'
 import verifyCode9 from '@/assets/verifyCode/verify9.png'
 import verifyCode10 from '@/assets/verifyCode/verify10.png'
-import axios from 'axios'
+import { apiGet } from '@/service/reqMethod.js'
 
 const verifyList = [
   verifyCode,

@@ -3,8 +3,12 @@ import axios from 'axios'
 const port = 9881
 const baseUrl = `http://localhost:${port}`
 
+const instance = axios.create({
+  timeout: 1000,
+})
+
 // Add a request interceptor
-axios.interceptors.request.use(
+instance.interceptors.request.use(
   (response) => {
     // Do something before request is sent
     return response
@@ -16,7 +20,7 @@ axios.interceptors.request.use(
 )
 
 // Add a response interceptor
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   (response) => {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
@@ -30,21 +34,21 @@ axios.interceptors.response.use(
   }
 )
 
-const apiGet = (url, params) => {
+const apiGet = ({ url, params }) => {
   return new Promise((resolve, reject) => {
-    axios
+    instance
       .get(`${baseUrl}${url}`, { params })
       .then((response) => {
-        resolve(response.data)
+        resolve(response)
       })
       .catch((err) => {
         reject(err)
       })
   })
 }
-const apiPost = (url, params) => {
+const apiPost = ({ url, params }) => {
   return new Promise((resolve, reject) => {
-    axios
+    instance
       .post(`${baseUrl}${url}`, params)
       .then((response) => {
         resolve(response.data)

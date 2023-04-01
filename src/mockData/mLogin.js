@@ -1,9 +1,13 @@
 import Mock from 'mockjs'
 const dataList = require('@/utils/constant.js')
 
+const workUrl = /\/apiWorkCollectionList/,
+  talentUrl = /\/apiTalentList/,
+  designerUrl = /\/designerList/
+
 const mocks = [
   {
-    url: '/apiWorkCollectionList',
+    url: workUrl,
     type: 'get',
     response: () => {
       return {
@@ -13,7 +17,7 @@ const mocks = [
     },
   },
   {
-    url: '/apiTalentList',
+    url: talentUrl,
     type: 'get',
     response: () => {
       return {
@@ -23,7 +27,7 @@ const mocks = [
     },
   },
   {
-    url: '/designerList',
+    url: designerUrl,
     type: 'get',
     response: () => {
       return {
