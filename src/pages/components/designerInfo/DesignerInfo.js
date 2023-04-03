@@ -13,8 +13,12 @@ const DesignerInfo = () => {
   }, [])
 
   const fetchData = async () => {
-    const res = await apiGet({ url: '/designerList' })
-    setList(res.data.data)
+    try {
+      const res = await apiGet({ url: '/designerList' })
+      setList(res.data.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const btnClicked = () => {

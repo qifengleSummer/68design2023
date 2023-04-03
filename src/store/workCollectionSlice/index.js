@@ -27,8 +27,12 @@ export const getWorkCollectionList = createAsyncThunk(
       newWork: newWork,
       judge: judge,
     }
-    const response = await apiGet({ url: '/apiWorkCollectionList', params })
-    return response.data
+    try {
+      const response = await apiGet({ url: '/apiWorkCollectionList', params })
+      return response.data
+    } catch (error) {
+      console.log(error)
+    }
   }
 )
 

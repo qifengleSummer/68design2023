@@ -1,11 +1,24 @@
 import Mock from 'mockjs'
 const dataList = require('@/utils/constant.js')
 
-const workUrl = /\/apiWorkCollectionList/,
+const registerUrl = /\/apiRegister/,
+  workUrl = /\/apiWorkCollectionList/,
   talentUrl = /\/apiTalentList/,
   designerUrl = /\/designerList/
 
 const mocks = [
+  {
+    url: registerUrl,
+    type: 'get',
+    response: () => {
+      return {
+        code: 200,
+        data: {
+          status: true,
+        },
+      }
+    },
+  },
   {
     url: workUrl,
     type: 'get',

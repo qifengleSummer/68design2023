@@ -26,8 +26,12 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (dispatch, 
     industry: filterIndustryStore,
     WorkType: filterWorkTypeStore,
   }
-  const response = await apiGet({ url: '/apiTalentList', params })
-  return response.data
+  try {
+    const response = await apiGet({ url: '/apiTalentList', params })
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 const initialState = {

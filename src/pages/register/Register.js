@@ -1,8 +1,8 @@
 import './Register.less'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from '@/assets/imgs/logo.JPG'
-import { Button, Form, Input, Space } from 'antd'
+import { Button, Form, Input, Space, message, Modal } from 'antd'
 import verifyCode from '@/assets/verifyCode/verify.png'
 import verifyCode2 from '@/assets/verifyCode/verify2.png'
 import verifyCode3 from '@/assets/verifyCode/verify3.png'
@@ -37,11 +37,50 @@ const tailLayout = {
 }
 
 const Register = () => {
+  const native = useNavigate()
   const [form] = Form.useForm()
   const [picIndex, setPicIndex] = useState(0)
+  const [messageApi, contextHolder] = message.useMessage()
+  const [modal, contextHolderM] = Modal.useModal()
 
-  const onFinish = (values) => {
+  const countDown = (values) => {
+    let secondsToGo = 5
+    const instance = modal.success({
+      title: '您已成功注册',
+      content: `${secondsToGo} 秒之后跳转登录页.`,
+      okText: '确定',
+      onOk: () => {
+        localStorage.setItem('68UseInfo', JSON.stringify(values))
+        native('/login')
+      },
+    })
+    const timer = setInterval(() => {
+      secondsToGo -= 1
+      instance.update({
+        content: `${secondsToGo} 秒之后跳转登录页.`,
+        okText: '确定',
+        onOk: () => {
+          localStorage.setItem('68UseInfo', JSON.stringify(values))
+          native('/login')
+        },
+      })
+    }, 1000)
+    setTimeout(() => {
+      clearInterval(timer)
+      instance.destroy()
+      localStorage.setItem('68UseInfo', JSON.stringify(values))
+      native('/login')
+    }, secondsToGo * 1000)
+  }
+
+  const onFinish = async (values) => {
     // 调用注册接口，弹框提示注册成功
+    try {
+      const res = await apiGet({ url: '/apiRegister', params: { ...values } })
+      if (res.data.data.status) countDown(values)
+    } catch (error) {
+      console.log(error)
+    }
   }
   const changePic = () => {
     setPicIndex(Math.ceil(Math.random() * 9))
@@ -50,7 +89,10 @@ const Register = () => {
     try {
       await form.validateFields(['phoneNo'])
       // 调用接口，发送短信验证码
-      // axios.xxx()
+      messageApi.open({
+        type: 'success',
+        content: '短信验证码已发送，请查收',
+      })
     } catch (err) {
       console.log(err)
     }
@@ -58,6 +100,7 @@ const Register = () => {
 
   return (
     <div className="register-container">
+      {contextHolder}
       <Link className="logo-container" to="/">
         <img className="logo-img" src={logo} alt="" />
       </Link>
@@ -176,6 +219,7 @@ const Register = () => {
           </p>
         </Form.Item>
       </Form>
+      {contextHolderM}
     </div>
   )
 }
