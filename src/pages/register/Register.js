@@ -1,32 +1,13 @@
 import './Register.less'
-import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '@/assets/imgs/logo.JPG'
-import { Button, Form, Input, Space, message, Modal } from 'antd'
-import verifyCode from '@/assets/verifyCode/verify.png'
-import verifyCode2 from '@/assets/verifyCode/verify2.png'
-import verifyCode3 from '@/assets/verifyCode/verify3.png'
-import verifyCode4 from '@/assets/verifyCode/verify4.png'
-import verifyCode5 from '@/assets/verifyCode/verify5.png'
-import verifyCode6 from '@/assets/verifyCode/verify6.png'
-import verifyCode7 from '@/assets/verifyCode/verify7.png'
-import verifyCode8 from '@/assets/verifyCode/verify8.png'
-import verifyCode9 from '@/assets/verifyCode/verify9.png'
-import verifyCode10 from '@/assets/verifyCode/verify10.png'
+import { Button, Form, Modal } from 'antd'
+import PictureCode from '@/pages/components/verifyInput/pictureCode/PictureCode'
+import PhoneCode from '@/pages/components/verifyInput/phoneCode/PhoneCode'
+import PhoneNumber from '@/pages/components/verifyInput/phoneNumber/PhoneNumber'
+import PasswordInput from '@/pages/components/verifyInput/passwordInput/PasswordInput'
 import { apiGet } from '@/service/reqMethod.js'
 
-const verifyList = [
-  verifyCode,
-  verifyCode2,
-  verifyCode3,
-  verifyCode4,
-  verifyCode5,
-  verifyCode6,
-  verifyCode7,
-  verifyCode8,
-  verifyCode9,
-  verifyCode10,
-]
 const layout = {
   labelCol: { span: 5 },
   wrapperCol: { span: 24 },
@@ -39,8 +20,6 @@ const tailLayout = {
 const Register = () => {
   const native = useNavigate()
   const [form] = Form.useForm()
-  const [picIndex, setPicIndex] = useState(0)
-  const [messageApi, contextHolder] = message.useMessage()
   const [modal, contextHolderM] = Modal.useModal()
 
   const countDown = (values) => {
@@ -82,25 +61,9 @@ const Register = () => {
       console.log(error)
     }
   }
-  const changePic = () => {
-    setPicIndex(Math.ceil(Math.random() * 9))
-  }
-  const sendPhoneCode = async () => {
-    try {
-      await form.validateFields(['phoneNo'])
-      // 调用接口，发送短信验证码
-      messageApi.open({
-        type: 'success',
-        content: '短信验证码已发送，请查收',
-      })
-    } catch (err) {
-      console.log(err)
-    }
-  }
 
   return (
     <div className="register-container">
-      {contextHolder}
       <Link className="logo-container" to="/">
         <img className="logo-img" src={logo} alt="" />
       </Link>
@@ -112,89 +75,14 @@ const Register = () => {
         onFinish={onFinish}
         autoComplete="off"
       >
-        <Form.Item
-          {...tailLayout}
-          name="phoneNo"
-          rules={[
-            {
-              validator: (rule, value) => {
-                if (!value) return Promise.reject(new Error('请输入手机号'))
-                const reg = /^1[3456789]\d{9}$/
-                if (!reg.test(value)) return Promise.reject(new Error('输入的手机号格式不正确'))
-                return Promise.resolve()
-              },
-            },
-          ]}
-        >
-          <Input placeholder="手机号" />
-        </Form.Item>
+        <PhoneNumber tailLayout={tailLayout} />
 
-        <Form.Item {...tailLayout} style={{ marginBottom: 0 }}>
-          <Form.Item
-            name="verifyCode"
-            style={{ display: 'inline-block', width: 'calc(73%)' }}
-            rules={[
-              {
-                validator: (rule, value) => {
-                  if (!value) return Promise.reject(new Error('请输入验证码'))
-                  const reg = /^\d{4}$/
-                  if (!reg.test(value)) return Promise.reject(new Error('请输入4位数字验证码'))
-                  return Promise.resolve()
-                },
-              },
-            ]}
-          >
-            <Input placeholder="验证码" />
-          </Form.Item>
-          <img
-            src={verifyList[picIndex]}
-            alt=""
-            style={{ height: '40px', cursor: 'pointer' }}
-            onClick={changePic}
-          />
-        </Form.Item>
+        <PictureCode tailLayout={tailLayout} />
 
-        <Form.Item
-          {...tailLayout}
-          name="phoneCode"
-          rules={[
-            {
-              validator: (rule, value) => {
-                if (!value) return Promise.reject(new Error('请输入短信码'))
-                const reg = /^\d{6}$/
-                if (!reg.test(value)) return Promise.reject(new Error('请输入6位数字短信码'))
-                return Promise.resolve()
-              },
-            },
-          ]}
-        >
-          <Space.Compact size="large">
-            <Input placeholder="短信码" />
-            <Button type="primary" style={{ backgroundColor: '#14a900' }} onClick={sendPhoneCode}>
-              发送短信码
-            </Button>
-          </Space.Compact>
-        </Form.Item>
+        <PhoneCode tailLayout={tailLayout} formObj={form} />
 
-        <Form.Item
-          {...tailLayout}
-          name="pwd"
-          rules={[
-            {
-              validator: (rule, value) => {
-                if (!value) return Promise.reject(new Error('请输入登录密码'))
-                const reg = /^(?![a-zA-Z]+$)(?!\d+$)(?![^\da-zA-Z\s]+$).{6,18}$/
-                if (!reg.test(value))
-                  return Promise.reject(
-                    new Error('请输入由字母、数字、特殊字符，任意2种组成，6-18位')
-                  )
-                return Promise.resolve()
-              },
-            },
-          ]}
-        >
-          <Input.Password placeholder="登录密码" />
-        </Form.Item>
+        <PasswordInput tailLayout={tailLayout} />
+
         <Form.Item {...tailLayout}>
           <p>
             注册即同意

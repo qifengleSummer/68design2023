@@ -1,16 +1,19 @@
 import './Login.less'
 import logo from '@/assets/imgs/logo.JPG'
-import { Tabs, Button, Form, Input } from 'antd'
+import { Tabs, Button, Form } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import PictureCode from '@/pages/components/verifyInput/pictureCode/PictureCode'
+import PhoneCode from '@/pages/components/verifyInput/phoneCode/PhoneCode'
+import PhoneNumber from '@/pages/components/verifyInput/phoneNumber/PhoneNumber'
+import PasswordInput from '@/pages/components/verifyInput/passwordInput/PasswordInput'
 
 const layout = {
-  labelCol: { span: 5 },
-  wrapperCol: { span: 16 },
+  wrapperCol: { span: 24 },
 }
 
 const tailLayout = {
-  wrapperCol: { offset: 5, span: 16 },
+  wrapperCol: { offset: 1, span: 24 },
 }
 
 const tabList = [
@@ -28,7 +31,7 @@ const tabList = [
 
 const Login = () => {
   const [tabKey, setTabKey] = useState('pwd')
-  const formRef = useRef(null)
+  const [form] = Form.useForm()
 
   const navigate = useNavigate()
   const onFinish = (values) => {
@@ -57,13 +60,13 @@ const Login = () => {
       />
       <Form
         {...layout}
-        ref={formRef}
+        form={form}
+        size="large"
         name="control-ref"
         onFinish={onFinish}
-        style={{ maxWidth: 600 }}
         autoComplete="off"
       >
-        {tabKey === 'pwd' ? <PwdForm /> : <MsgForm />}
+        {tabKey === 'pwd' ? <PwdForm /> : <MsgForm form={form} />}
         <Form.Item {...tailLayout}>
           <p>
             登录即同意
@@ -97,47 +100,19 @@ const Login = () => {
 const PwdForm = () => {
   return (
     <div>
-      <Form.Item
-        name="phoneNo"
-        label="用户名"
-        rules={[{ required: true, message: '请输入用户名/Email/手机号' }]}
-      >
-        <Input placeholder="用户名/Email/手机号" />
-      </Form.Item>
-      <Form.Item
-        name="pwd"
-        label="登录密码"
-        rules={[{ required: true, message: '请输入登录密码' }]}
-      >
-        <Input.Password />
-      </Form.Item>
-      <Form.Item name="code" label="验证码" rules={[{ required: true, message: '请输入验证码' }]}>
-        <Input />
-      </Form.Item>
+      <PhoneNumber tailLayout={tailLayout} />
+      <PasswordInput tailLayout={tailLayout} />
+      <PictureCode tailLayout={tailLayout} />
     </div>
   )
 }
 
-const MsgForm = () => {
+const MsgForm = ({ form }) => {
   return (
     <div>
-      <Form.Item
-        name="phoneNo"
-        label="手机号"
-        rules={[{ required: true, message: '请输入手机号' }]}
-      >
-        <Input placeholder="手机号" />
-      </Form.Item>
-      <Form.Item name="code" label="验证码" rules={[{ required: true, message: '请输入验证码' }]}>
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="phoneCode"
-        label="短信码"
-        rules={[{ required: true, message: '请输入短信码' }]}
-      >
-        <Input />
-      </Form.Item>
+      <PhoneNumber tailLayout={tailLayout} />
+      <PictureCode tailLayout={tailLayout} />
+      <PhoneCode tailLayout={tailLayout} formObj={form} />
     </div>
   )
 }
