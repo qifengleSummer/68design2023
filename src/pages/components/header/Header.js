@@ -1,6 +1,6 @@
 import './Header.less'
 import logo from '@/assets/imgs/logo.JPG'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Col, Row, Space } from 'antd'
 
 import NavSearch from '../navSearch/NavSearch'
@@ -9,19 +9,6 @@ import LeftBar from '../leftBar/LeftBar'
 import CommonButton from '../commonButton/CommonButton'
 
 function TopHeader() {
-  const navigate = useNavigate()
-  const btnClicked = (type) => {
-    switch (type) {
-      case 2:
-        navigate('/login')
-        break
-      case 3:
-        navigate('/register')
-        break
-      default:
-        break
-    }
-  }
   return (
     <div className="top-header-container">
       <header>
@@ -31,9 +18,9 @@ function TopHeader() {
           </Col>
           <Col span={12} className="right-btn">
             <Space>
-              <CommonButton btnClicked={() => btnClicked(1)} title="雇主控制台" />
-              <CommonButton btnClicked={() => btnClicked(2)} title="登录" />
-              <CommonButton btnClicked={() => btnClicked(3)} title="注册" emphasize />
+              <CommonButton title="雇主控制台" />
+              <CommonButton navUrl="/login" title="登录" />
+              <CommonButton navUrl="/register" title="注册" emphasize />
             </Space>
           </Col>
         </Row>

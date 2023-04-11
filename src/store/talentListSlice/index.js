@@ -19,7 +19,9 @@ export const filterOtherExperienceAction = createAction('filter/OtherExperienceS
 export const FILTER_PAGE_NUM = 'filter/pageNum'
 export const filterPageNum = createAction(FILTER_PAGE_NUM)
 
-export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (dispatch, getState) => {
+export const FETCH_TODOS = 'todos/fetchTodos'
+export const fetchTodosAction = createAction(FETCH_TODOS)
+export const fetchTodos = createAsyncThunk(fetchTodosAction, async (dispatch, getState) => {
   let { pageNum, filterIndustryStore, filterWorkTypeStore } = getState.getState().talentList
   let params = {
     pageNum: pageNum,

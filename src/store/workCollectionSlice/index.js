@@ -16,8 +16,10 @@ export const collectionNewWork = createAction(WORK_COLLECTION_NEW_WORK)
 export const WORK_COLLECTION_JUDGE = 'workCollection/judge'
 export const collectionJudge = createAction(WORK_COLLECTION_JUDGE)
 
+export const WORK_COLLECTION_LIST = 'todos/getWorkCollectionList'
+export const workCollectionAction = createAction(WORK_COLLECTION_LIST)
 export const getWorkCollectionList = createAsyncThunk(
-  'todos/getWorkCollectionList',
+  workCollectionAction,
   async (dispatch, getState) => {
     let { pageNum, category, newWork, judge } = getState.getState().workCollectionList
 

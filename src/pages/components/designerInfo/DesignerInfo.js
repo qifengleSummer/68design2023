@@ -1,12 +1,11 @@
 import './DesignerInfo.less'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import CommonButton from '@/pages/components/commonButton/CommonButton'
 import picDesigner from '@/assets/imgs/homePage/designer.jpg'
 import { apiGet } from '@/service/reqMethod.js'
 
 const DesignerInfo = () => {
-  const navigate = useNavigate()
   const [list, setList] = useState([])
   useEffect(() => {
     fetchData()
@@ -19,10 +18,6 @@ const DesignerInfo = () => {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  const btnClicked = () => {
-    navigate('/designer-personal-space')
   }
 
   return (
@@ -63,12 +58,12 @@ const DesignerInfo = () => {
           <p className="designer-introduce">{item.desc}</p>
           <div className="designer-hire-button">
             <CommonButton
-              btnClicked={btnClicked}
               title="可雇"
               size="middle"
               emphasize
               fontEmphasize
               fontSize="16"
+              navUrl="/designer-personal-space"
             />
           </div>
         </li>

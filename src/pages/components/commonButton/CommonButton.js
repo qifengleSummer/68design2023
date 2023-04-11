@@ -17,7 +17,7 @@ const CommonButton = ({
 }) => {
   const navigate = useNavigate()
   const commonBtnClicked = () => {
-    if (navUrl) return navigate('/designer-personal-space')
+    if (navUrl) return navigate(navUrl)
     btnClicked()
   }
   let btnConfig = {
