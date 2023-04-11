@@ -10,9 +10,11 @@ function App() {
     window.scrollTo(0, 0)
   }, [pathname])
   return (
-    <div className="App">
+    <div className="app">
       <TopHeader />
-      <Outlet />
+      <div className="app-out-let">
+        <Outlet />
+      </div>
       <Footer />
       <ScrollRestoration />
     </div>

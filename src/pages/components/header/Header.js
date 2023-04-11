@@ -2,15 +2,32 @@ import './Header.less'
 import logo from '@/assets/imgs/logo.JPG'
 import { Link } from 'react-router-dom'
 import { Col, Row, Space } from 'antd'
-
+import { useEffect, useState } from 'react'
 import NavSearch from '../navSearch/NavSearch'
 import NavHorizontal from '../navHorizontal/NavHorizontal'
 import LeftBar from '../leftBar/LeftBar'
 import CommonButton from '../commonButton/CommonButton'
 
 function TopHeader() {
+  const [suctionCeiling, setSuctionCeiling] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, true)
+    return window.removeEventListener('scroll', handleScroll)
+  })
+
+  const handleScroll = () => {
+    let y = document.documentElement.scrollTop
+    if (y > 50) return setSuctionCeiling(true)
+    return setSuctionCeiling(false)
+  }
+
   return (
-    <div className="top-header-container">
+    <div
+      className={['top-header-container', suctionCeiling ? 'top-header-container-shadow' : ''].join(
+        ' '
+      )}
+    >
       <header>
         <Row className="header-container">
           <Col span={12} className="left--top-bar">
