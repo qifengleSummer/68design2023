@@ -1,65 +1,67 @@
 .talent-list-li {
   height: 280px;
-  padding: 30px 15px 30px;
-  margin: 0 13px 30px 13px;
   background: #fff;
-  transition: ease 0.3s;
   border-radius: 4px;
-  border: 1px solid #f1f1f1;
-  width: 20.3%;
+  width: 25%;
   clear: both;
-  &:hover {
-    box-shadow: 0 0 15px rgb(0 0 0 / 5%);
-    margin-bottom: 32px;
-    margin-top: -2px;
-  }
-  .avatar-container {
-    display: flex;
-    padding: 0 0 20px;
-    font-size: 14px;
-    color: #666;
-    .desiner-introduce {
+  .talent-list-li-container {
+    padding: 30px 15px 30px;
+    margin: 0 13px 30px 13px;
+    border: 1px solid #f1f1f1;
+    transition: ease 0.3s;
+    &:hover {
+      box-shadow: 0 0 15px rgb(0 0 0 / 5%);
+      margin-bottom: 32px;
+      margin-top: -2px;
+    }
+    .avatar-container {
       display: flex;
-      justify-content: center;
-      flex-direction: column;
-      padding-left: 10px;
-      .designer-name {
-        font-size: 18px;
-        color: #111;
-        transition: ease 0.3s;
-        margin-bottom: 5px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        &:hover {
-          color: #14a900;
+      padding: 0 0 20px;
+      font-size: 14px;
+      color: #666;
+      .desiner-introduce {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 10px;
+        .designer-name {
+          font-size: 18px;
+          color: #111;
+          transition: ease 0.3s;
+          margin-bottom: 5px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &:hover {
+            color: #14a900;
+          }
+        }
+        .designer-tag {
+          margin-top: 15px;
+          color: #494949;
+          .designer-tag-type {
+            margin-right: 10px;
+          }
         }
       }
-      .designer-tag {
-        margin-top: 15px;
-        color: #494949;
-        .designer-tag-type {
-          margin-right: 10px;
-        }
+    }
+    .designer-price-container {
+      padding: 10px 0 20px;
+      border-bottom: 1px solid #efefef;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #888;
+      .designer-price {
+        font-size: 20px;
+        color: #222222;
+      }
+      .designer-price-tag {
+        display: inline-block;
+        margin-left: 10px;
       }
     }
-  }
-  .designer-price-container {
-    padding: 10px 0 20px;
-    border-bottom: 1px solid #efefef;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #888;
-    .designer-price {
-      font-size: 20px;
-      color: #222222;
+    .work-scope {
+      margin-bottom: 20px;
     }
-    .designer-price-tag {
-      display: inline-block;
-      margin-left: 10px;
-    }
-  }
-  .work-scope {
-    margin-bottom: 20px;
   }
 }

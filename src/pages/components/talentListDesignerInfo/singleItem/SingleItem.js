@@ -29,44 +29,46 @@ const SingleItem = () => {
 
   return list.map((item, index) => (
     <li key={index} className="talent-list-li">
-      <div className="avatar-container">
-        <Link to="/designer-personal-space">
-          <PersonalAvatar />
-        </Link>
-        <div className="desiner-introduce">
-          <Link className="designer-name" to="/designer-personal-space">
-            <b>{item.name}</b>
+      <div className="talent-list-li-container">
+        <div className="avatar-container">
+          <Link to="/designer-personal-space">
+            <PersonalAvatar />
           </Link>
-          <p className="designer-type">{item.level}级服务方</p>
-          <p className="designer-tag">
-            <span className="designer-tag-type">{item.type}</span>
-            <span className="designer-tag-time">{item.time}年</span>
-          </p>
+          <div className="desiner-introduce">
+            <Link className="designer-name" to="/designer-personal-space">
+              <b>{item.name}</b>
+            </Link>
+            <p className="designer-type">{item.level}级服务方</p>
+            <p className="designer-tag">
+              <span className="designer-tag-type">{item.type}</span>
+              <span className="designer-tag-time">{item.time}年</span>
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="designer-price-container">
-        <b className="designer-price">{item.price}</b>/月
-        <div className="designer-price-tag">
+        <div className="designer-price-container">
+          <b className="designer-price">{item.price}</b>/月
+          <div className="designer-price-tag">
+            <TagList
+              consistentColor={{ backgroundColor: '#0CC0F4', color: '#fff' }}
+              tagList={item.tagList}
+            />
+          </div>
+        </div>
+        <div className="work-scope">
           <TagList
-            consistentColor={{ backgroundColor: '#0CC0F4', color: '#fff' }}
-            tagList={item.tagList}
+            consistentColor={{ backgroundColor: '#F2F7F2', color: '#666' }}
+            tagList={item.workType}
           />
         </div>
-      </div>
-      <div className="work-scope">
-        <TagList
-          consistentColor={{ backgroundColor: '#F2F7F2', color: '#666' }}
-          tagList={item.workType}
+        <CommonButton
+          navUrl="/designer-personal-space"
+          title="查看"
+          size="middle"
+          emphasize
+          fontEmphasize
+          fontSize="16"
         />
       </div>
-      <CommonButton
-        navUrl="/designer-personal-space"
-        title="查看"
-        size="middle"
-        emphasize
-        fontEmphasize
-        fontSize="16"
-      />
     </li>
   ))
 }
