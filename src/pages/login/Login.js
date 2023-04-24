@@ -7,6 +7,8 @@ import PictureCode from '@/pages/components/verifyInput/pictureCode/PictureCode'
 import PhoneCode from '@/pages/components/verifyInput/phoneCode/PhoneCode'
 import PhoneNumber from '@/pages/components/verifyInput/phoneNumber/PhoneNumber'
 import PasswordInput from '@/pages/components/verifyInput/passwordInput/PasswordInput'
+import { useSelector } from 'react-redux'
+import { adapterLoginEntities } from '@/store/loginSlice/index.js'
 
 const layout = {
   wrapperCol: { span: 24 },
@@ -34,9 +36,16 @@ const Login = () => {
   const [form] = Form.useForm()
 
   const navigate = useNavigate()
+  let loginData = useSelector(adapterLoginEntities)
+
   const onFinish = (values) => {
-    console.log(values)
-    navigate('/', { state: 111 })
+    let row = loginData[values.phoneNo]
+    if (!row) return alert('该账号未注册')
+    if (row.changes.name === values.phoneNo && row.changes.pwd === values.pwd) {
+      navigate('/', { state: 111 })
+    } else {
+      alert('账号或密码错误')
+    }
   }
   const onChange = (key) => {
     setTabKey(key)

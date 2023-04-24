@@ -9,7 +9,7 @@ const registerUrl = /\/apiRegister/,
 const mocks = [
   {
     url: registerUrl,
-    type: 'get',
+    type: 'post',
     response: () => {
       return {
         code: 200,

@@ -6,7 +6,9 @@ import PictureCode from '@/pages/components/verifyInput/pictureCode/PictureCode'
 import PhoneCode from '@/pages/components/verifyInput/phoneCode/PhoneCode'
 import PhoneNumber from '@/pages/components/verifyInput/phoneNumber/PhoneNumber'
 import PasswordInput from '@/pages/components/verifyInput/passwordInput/PasswordInput'
-import { apiGet } from '@/service/reqMethod.js'
+import { apiPost } from '@/service/reqMethod.js'
+import { useDispatch } from 'react-redux'
+import { STORE_LOGIN } from '@/store/loginSlice/index.js'
 
 const layout = {
   labelCol: { span: 5 },
@@ -19,6 +21,8 @@ const tailLayout = {
 
 const Register = () => {
   const native = useNavigate()
+  const dispatch = useDispatch()
+
   const [form] = Form.useForm()
   const [modal, contextHolderM] = Modal.useModal()
 
@@ -39,12 +43,14 @@ const Register = () => {
         content: `${secondsToGo} 秒之后跳转登录页.`,
         okText: '确定',
         onOk: () => {
+          clearInterval(timer)
+          clearInterval(timerSetTimer)
           localStorage.setItem('68UseInfo', JSON.stringify(values))
           native('/login')
         },
       })
     }, 1000)
-    setTimeout(() => {
+    const timerSetTimer = setTimeout(() => {
       clearInterval(timer)
       instance.destroy()
       localStorage.setItem('68UseInfo', JSON.stringify(values))
@@ -55,8 +61,21 @@ const Register = () => {
   const onFinish = async (values) => {
     // 调用注册接口，弹框提示注册成功
     try {
-      const res = await apiGet({ url: '/apiRegister', params: { ...values } })
-      if (res.data.data.status) countDown(values)
+      const res = await apiPost({ url: '/apiRegister', params: { ...values } })
+      if (!res.data.status) return
+      // 保存注册手机号和密码
+      dispatch({
+        type: STORE_LOGIN,
+        payload: {
+          id: values.phoneNo,
+          changes: {
+            id: values.phoneNo,
+            name: values.phoneNo,
+            pwd: values.pwd,
+          },
+        },
+      })
+      countDown(values)
     } catch (error) {
       console.log(error)
     }

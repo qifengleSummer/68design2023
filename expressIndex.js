@@ -36,6 +36,9 @@ app.get('/apiTalentList', (req, res) => {
   res.json(resConfig(constantData.talentData))
 })
 
+app.post('/apiRegister', (req, res) => {
+  res.send(resConfig({ status: true }))
+})
 app.post('/testPost', (req, res) => {
   res.send(resConfig('hello testPost'))
 })
