@@ -20,7 +20,13 @@ const DesignerDetailInfo = ({ designerInfo }) => {
           </div>
         </div>
         <div className="pay-attention">
-          <CommonButton btnClicked={btnClicked} title="加关注" size="middle" emphasize />
+          <CommonButton
+            btnClicked={btnClicked}
+            needLoginStatus={true}
+            title="加关注"
+            size="middle"
+            emphasize
+          />
         </div>
       </div>
       <ul className="designer-works-exams">

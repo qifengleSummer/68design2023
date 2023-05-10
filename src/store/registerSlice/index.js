@@ -1,13 +1,13 @@
 import { createAction, createReducer, createEntityAdapter } from '@reduxjs/toolkit'
-export const STORE_LOGIN = 'store/login'
-export const storeLogin = createAction(STORE_LOGIN)
+export const STORE_REGISTER = 'store/register'
+export const storeRegister = createAction(STORE_REGISTER)
 
 export const DataAdapter = createEntityAdapter()
 
 export const { selectById: adapterLoginId, selectEntities: adapterLoginEntities } =
-  DataAdapter.getSelectors((state) => state.loginUserData)
+  DataAdapter.getSelectors((state) => state.registerUserData)
 
-// const loginInit = {
+// const registerList = {
 //   ids: [],
 //   entities: {
 //     first: {
@@ -17,14 +17,14 @@ export const { selectById: adapterLoginId, selectEntities: adapterLoginEntities 
 //   },
 // }
 
-const loginSlice = createReducer(
-  // DataAdapter.getInitialState(loginInit),
+const registerSlice = createReducer(
+  // DataAdapter.getInitialState(registerList),
   DataAdapter.getInitialState(),
   (builder) => {
-    builder.addCase(storeLogin, (state, action) => {
+    builder.addCase(storeRegister, (state, action) => {
       DataAdapter.upsertOne(state, action.payload)
     })
   }
 )
 
-export default loginSlice
+export default registerSlice

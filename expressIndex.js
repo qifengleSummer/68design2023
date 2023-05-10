@@ -39,6 +39,9 @@ app.get('/apiTalentList', (req, res) => {
 app.post('/apiRegister', (req, res) => {
   res.send(resConfig({ status: true }))
 })
+app.post('/checkLogin', (req, res) => {
+  res.send(resConfig({ isLoggedIn: false }))
+})
 app.post('/testPost', (req, res) => {
   res.send(resConfig('hello testPost'))
 })

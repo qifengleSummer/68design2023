@@ -1,6 +1,6 @@
 import { Form, Input } from 'antd'
 import { useSelector } from 'react-redux'
-import { adapterLoginEntities } from '@/store/loginSlice/index.js'
+import { adapterLoginEntities } from '@/store/registerSlice/index.js'
 import { useLocation } from 'react-router-dom'
 
 const PhoneNumber = ({ tailLayout }) => {

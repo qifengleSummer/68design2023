@@ -57,6 +57,7 @@ const WorkListDesignerInfo = () => {
               setIcon={<PlusOutlined />}
               btnClicked={addFocus}
               title="加关注"
+              needLoginStatus={true}
               emphasize
             />
           </div>

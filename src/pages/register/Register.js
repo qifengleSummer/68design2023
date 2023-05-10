@@ -8,7 +8,7 @@ import PhoneNumber from '@/pages/components/verifyInput/phoneNumber/PhoneNumber'
 import PasswordInput from '@/pages/components/verifyInput/passwordInput/PasswordInput'
 import { apiPost } from '@/service/reqMethod.js'
 import { useDispatch } from 'react-redux'
-import { STORE_LOGIN } from '@/store/loginSlice/index.js'
+import { STORE_REGISTER } from '@/store/registerSlice/index.js'
 
 const layout = {
   labelCol: { span: 5 },
@@ -20,6 +20,7 @@ const tailLayout = {
 }
 
 const Register = () => {
+  localStorage.setItem('userName', '')
   const native = useNavigate()
   const dispatch = useDispatch()
 
@@ -33,7 +34,6 @@ const Register = () => {
       content: `${secondsToGo} 秒之后跳转登录页.`,
       okText: '确定',
       onOk: () => {
-        localStorage.setItem('68UseInfo', JSON.stringify(values))
         native('/login')
       },
     })
@@ -45,7 +45,6 @@ const Register = () => {
         onOk: () => {
           clearInterval(timer)
           clearInterval(timerSetTimer)
-          localStorage.setItem('68UseInfo', JSON.stringify(values))
           native('/login')
         },
       })
@@ -53,7 +52,6 @@ const Register = () => {
     const timerSetTimer = setTimeout(() => {
       clearInterval(timer)
       instance.destroy()
-      localStorage.setItem('68UseInfo', JSON.stringify(values))
       native('/login')
     }, secondsToGo * 1000)
   }
@@ -65,7 +63,7 @@ const Register = () => {
       if (!res.data.status) return
       // 保存注册手机号和密码
       dispatch({
-        type: STORE_LOGIN,
+        type: STORE_REGISTER,
         payload: {
           id: values.phoneNo,
           changes: {

@@ -1,6 +1,8 @@
 import './CommonButton.less'
 import { Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { reqCheckLogin, SHOW_LOGIN_MODAL } from '@/store/loginStatusSlice/index.js'
 
 const CommonButton = ({
   title,
@@ -14,9 +16,21 @@ const CommonButton = ({
   btnClicked,
   setIcon,
   navUrl,
+  needLoginStatus, // 该按钮点击后是否需要校验登录状态，未登录，则提示登录
 }) => {
   const navigate = useNavigate()
-  const commonBtnClicked = () => {
+  const dispatch = useDispatch()
+  const commonBtnClicked = async () => {
+    if (needLoginStatus) {
+      try {
+        // 目前：接口写死未登录状态
+        const res = await dispatch(reqCheckLogin()).unwrap() // 校验是否登录
+        dispatch({ type: SHOW_LOGIN_MODAL, payload: !res.isLoggedIn })
+        alert('已登录状态！')
+      } catch (error) {
+        dispatch({ type: SHOW_LOGIN_MODAL, payload: true }) // 提示登录
+      }
+    }
     if (navUrl) return navigate(navUrl)
     btnClicked()
   }

@@ -1,14 +1,14 @@
 import './Login.less'
 import logo from '@/assets/imgs/logo.JPG'
 import { Tabs, Button, Form } from 'antd'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import PictureCode from '@/pages/components/verifyInput/pictureCode/PictureCode'
 import PhoneCode from '@/pages/components/verifyInput/phoneCode/PhoneCode'
 import PhoneNumber from '@/pages/components/verifyInput/phoneNumber/PhoneNumber'
 import PasswordInput from '@/pages/components/verifyInput/passwordInput/PasswordInput'
 import { useSelector } from 'react-redux'
-import { adapterLoginEntities } from '@/store/loginSlice/index.js'
+import { adapterLoginEntities } from '@/store/registerSlice/index.js'
 
 const layout = {
   wrapperCol: { span: 24 },
@@ -32,16 +32,19 @@ const tabList = [
 ]
 
 const Login = () => {
+  localStorage.setItem('userName', '')
   const [tabKey, setTabKey] = useState('pwd')
   const [form] = Form.useForm()
 
   const navigate = useNavigate()
+  const { pathname } = useLocation()
   let loginData = useSelector(adapterLoginEntities)
 
   const onFinish = (values) => {
     let row = loginData[values.phoneNo]
     if (!row) return alert('该账号未注册')
     if (row.changes.name === values.phoneNo && row.changes.pwd === values.pwd) {
+      localStorage.setItem('userName', values.phoneNo)
       navigate('/', { state: 111 })
     } else {
       alert('账号或密码错误')
@@ -53,7 +56,11 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <Link className="logo-container" to="/">
+      <Link
+        className="logo-container"
+        to="/"
+        style={{ display: pathname === '/login' ? 'block' : 'none' }}
+      >
         <img className="logo-img" src={logo} alt="" />
       </Link>
       <Tabs
