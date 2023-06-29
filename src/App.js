@@ -3,6 +3,7 @@ import { useLayoutEffect } from 'react'
 import { Outlet, useLocation, ScrollRestoration } from 'react-router-dom'
 import TopHeader from '@/pages/components/header/Header'
 import Footer from '@/pages/components/footer/Footer'
+import BottomTool from '@/pages/components/bottomTool/BottomTool'
 import LoginModal from '@/pages/components/loginModal/LoginModal.js'
 import { useDispatch } from 'react-redux'
 import { SHOW_LOGIN_MODAL } from '@/store/loginStatusSlice/index.js'
@@ -24,6 +25,7 @@ function App() {
         <Outlet />
       </div>
       <Footer />
+      <BottomTool />
       <LoginModal />
       <ScrollRestoration />
     </div>

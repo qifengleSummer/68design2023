@@ -43,6 +43,7 @@ const WorkItemDetail = ({ detailConfig, widthVal = 20 }) => {
             {detailConfig && detailConfig.needAuthorName && (
               <div className="wp-author">
                 <Popover
+                  zIndex={99}
                   placement="bottomLeft"
                   content={<DesignerDetailInfo designerInfo={item} />}
                 >

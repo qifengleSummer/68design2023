@@ -26,7 +26,6 @@ const CommonButton = ({
         // 目前：接口写死未登录状态
         const res = await dispatch(reqCheckLogin()).unwrap() // 校验是否登录
         dispatch({ type: SHOW_LOGIN_MODAL, payload: !res.isLoggedIn })
-        alert('已登录状态！')
       } catch (error) {
         dispatch({ type: SHOW_LOGIN_MODAL, payload: true }) // 提示登录
       }

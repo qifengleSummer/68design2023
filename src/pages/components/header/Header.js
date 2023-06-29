@@ -10,6 +10,7 @@ import CommonButton from '../commonButton/CommonButton'
 
 function TopHeader() {
   const [suctionCeiling, setSuctionCeiling] = useState(false)
+  const [oldTop, setOldTop] = useState(0)
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, true)
@@ -18,15 +19,20 @@ function TopHeader() {
 
   const handleScroll = () => {
     let y = document.documentElement.scrollTop
-    if (y > 50) return setSuctionCeiling(true)
-    return setSuctionCeiling(false)
+    if (oldTop > y) {
+      setOldTop(y)
+      return setSuctionCeiling(false)
+    }
+    setOldTop(y)
+    setSuctionCeiling(true)
   }
 
   return (
     <div
-      className={['top-header-container', suctionCeiling ? 'top-header-container-shadow' : ''].join(
-        ' '
-      )}
+      className={[
+        'top-header-container',
+        suctionCeiling ? 'top-header-container-shadow' : 'top-header-scroll-top-container-shadow',
+      ].join(' ')}
     >
       <header>
         <Row className="header-container">

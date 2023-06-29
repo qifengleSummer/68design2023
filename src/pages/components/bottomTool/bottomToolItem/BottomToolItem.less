@@ -1,0 +1,38 @@
+.bottom-tool-item {
+  text-align: center;
+  height: 50px;
+  color: #444;
+  border: 1px solid #f3f1f1;
+  border-top: none;
+  .bottom-tool-item-content {
+    height: 50px;
+  }
+  &:hover {
+    color: #14a900;
+    cursor: pointer;
+  }
+  &:first-child {
+    background-color: #14a900;
+    color: #fff;
+    border-color: #14a900;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    &:hover {
+      background: #3c8224;
+      border-color: #3c8224;
+    }
+  }
+  &:last-child {
+    transition: ease 0.3s;
+  }
+  &.hide-last-child {
+    border-bottom: 1px solid #f3f1f1;
+    height: 0;
+    overflow: hidden;
+    border-width: 0;
+  }
+  &.last-item-style {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+}
